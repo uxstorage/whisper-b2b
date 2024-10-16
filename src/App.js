@@ -12,13 +12,12 @@ function App() {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? 'hidden' : 'visible';
   }, [isMenuOpen]);
 
   return (
-    <Router basename={process.env.PUBLIC_URL}>
+    <Router>
       <div className="App">
         <Header isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
         <Routes>
