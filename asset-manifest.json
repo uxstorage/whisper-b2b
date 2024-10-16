@@ -1,0 +1,42 @@
+{
+  "files": {
+    "main.css": "/whisper-b2b/static/css/main.0765b635.css",
+    "main.js": "/whisper-b2b/static/js/main.a42eec13.js",
+    "static/js/453.99dcf01f.chunk.js": "/whisper-b2b/static/js/453.99dcf01f.chunk.js",
+    "static/media/homepage_ghost.gif": "/whisper-b2b/static/media/homepage_ghost.9bf79d1d194d9fa136e5.gif",
+    "static/media/bx-bg.png": "/whisper-b2b/static/media/bx-bg.6ad8421cd2db7c530a96.png",
+    "static/media/solution-bg.png": "/whisper-b2b/static/media/solution-bg.2eb0254a52e812c1cbac.png",
+    "static/media/wallet-background.png": "/whisper-b2b/static/media/wallet-background.6dd71b90132a08e5bc13.png",
+    "static/media/Footer.png": "/whisper-b2b/static/media/Footer.076991aa06ad5a6e346d.png",
+    "static/media/browse-dapp.png": "/whisper-b2b/static/media/browse-dapp.7f32a6f0f5f7c5b17708.png",
+    "static/media/web3-browser.png": "/whisper-b2b/static/media/web3-browser.9c0bf63dff60ca9b214b.png",
+    "static/media/Container2.png": "/whisper-b2b/static/media/Container2.897fb1136e12a34bfa1e.png",
+    "static/media/adoption3.png": "/whisper-b2b/static/media/adoption3.3ab59448d60a9d8c352f.png",
+    "static/media/dex.png": "/whisper-b2b/static/media/dex.edd4d803547f624693ac.png",
+    "static/media/Container.png": "/whisper-b2b/static/media/Container.ddcb486c42790caab18e.png",
+    "static/media/adoption1.png": "/whisper-b2b/static/media/adoption1.b12ebeb28b4b1a238a06.png",
+    "static/media/network-image.png": "/whisper-b2b/static/media/network-image.705d1385daa77327b810.png",
+    "static/media/adoption2.png": "/whisper-b2b/static/media/adoption2.d8a206695b3287f4c94c.png",
+    "static/media/whitelabel.png": "/whisper-b2b/static/media/whitelabel.77a0d79c2d9b44e617e4.png",
+    "static/media/asset-management-image.png": "/whisper-b2b/static/media/asset-management-image.82a4b36c5f6092615fe9.png",
+    "static/media/smart-contract-image.png": "/whisper-b2b/static/media/smart-contract-image.7a347187257c27279b94.png",
+    "static/media/clients4.png": "/whisper-b2b/static/media/clients4.f7118e52bece7f70c7cc.png",
+    "static/media/clients1.png": "/whisper-b2b/static/media/clients1.a09a9ed2ba1f5fab105b.png",
+    "static/media/clients2.png": "/whisper-b2b/static/media/clients2.30cc3a360edc9219915a.png",
+    "static/media/send-money.png": "/whisper-b2b/static/media/send-money.6a3284387b8c8827a175.png",
+    "static/media/group-message.png": "/whisper-b2b/static/media/group-message.f2514b8f8fe883aabc6a.png",
+    "static/media/clients3.png": "/whisper-b2b/static/media/clients3.71c982e11428eb1e59ae.png",
+    "static/media/directory.png": "/whisper-b2b/static/media/directory.7516f0819a3d0d15e5e5.png",
+    "static/media/e2ee.png": "/whisper-b2b/static/media/e2ee.9d72460b60f97a7704ce.png",
+    "static/media/whisper-logo.svg": "/whisper-b2b/static/media/whisper-logo.53fd440dc630c4eff1ba68f09e80e3f5.svg",
+    "static/media/whisper-logo-dark.svg": "/whisper-b2b/static/media/whisper-logo-dark.1bd0ffd81dd58b12dfd822d2581afaf2.svg",
+    "index.html": "/whisper-b2b/index.html",
+    "main.0765b635.css.map": "/whisper-b2b/static/css/main.0765b635.css.map",
+    "main.a42eec13.js.map": "/whisper-b2b/static/js/main.a42eec13.js.map",
+    "453.99dcf01f.chunk.js.map": "/whisper-b2b/static/js/453.99dcf01f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0765b635.css",
+    "static/js/main.a42eec13.js"
+  ]
+}
