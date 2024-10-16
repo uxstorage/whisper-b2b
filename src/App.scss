@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+:root {
+  // Semantic Colors
+  --primary-normal: #3B37FF;
+  --label-normal: var(--cool-neutral-10);
+  --label-strong: var(--common-0);
+  --label-neutral: rgba(46, 47, 51, 0.88);
+  --label-alternative: rgba(46, 47, 51, 0.61);
+  --label-assistive: rgba(46, 47, 51, 0.28);
+  --label-disable: rgba(46, 47, 51, 0.16);
+  --background-normal-normal: var(--common-100);
+  --background-normal-alternative: var(--cool-neutral-99);
+  --background-elevated-normal: var(--common-100);
+  --background-elevated-alternative: var(--cool-neutral-98);
+  --interaction-inactive: var(--cool-neutral-70);
+  --interaction-disable: var(--cool-neutral-98);
+  --line-normal-normal: rgba(112, 115, 124, 0.22);
+  --line-normal-neutral: rgba(112, 115, 124, 0.16);
+  --line-normal-alternative: rgba(112, 115, 124, 0.08);
+  --line-normal-strong: rgba(112, 115, 124, 0.52);
+  --fill-normal: rgba(112, 115, 124, 0.08);
+  --fill-strong: rgba(112, 115, 124, 0.16);
+  --fill-alternative: rgba(112, 115, 124, 0.05);
+  --static-white: var(--common-100);
+  --static-black: var(--common-0);
+
+  // Status Colors
+  --status-positive: #00D394;
+  --status-cautionary: #FF9200;
+  --status-negative: #FF4242;
+
+  // Accent Colors
+  --accent-lime: #58CF04;
+  --accent-cyan: #00BCDE;
+  --accent-light-blue: #00AEFF;
+  --accent-violet: #6541F2;
+  --accent-pink: #F553DA;
+  --accent-red-orange: #FF5D00;
+
+  // Common Colors
+  --common-0: #000000;
+  --common-100: #FFFFFF;
+
+  // Cool Neutral Colors
+  --cool-neutral-10: #17171A;
+  --cool-neutral-15: #1B1C1E;
+  --cool-neutral-25: #373940;
+  --cool-neutral-40: #5A5D66;
+  --cool-neutral-50: #70737C;
+  --cool-neutral-70: #989BA3;
+  --cool-neutral-80: #C2C4CA;
+  --cool-neutral-90: #E1E2E5;
+  --cool-neutral-96: #E1E2E5;
+  --cool-neutral-97: #EAEBEC;
+  --cool-neutral-98: #F4F4F5;
+  --cool-neutral-99: #F7F7F8;
+
+  // Blue Colors
+  --blue-55: #1A75FF;
+  --blue-60: #3385FF;
+
+  // Other Colors (if needed)
+  // Add any other color variables from the JSON here
+
+  // 다크모드 변수
+  --dark-background-normal-normal: var(--cool-neutral-10);
+  --dark-background-normal-alternative: var(--cool-neutral-15);
+  --dark-background-elevated-normal: var(--cool-neutral-15);
+  --dark-background-elevated-alternative: var(--cool-neutral-25);
+  --dark-label-normal: var(--cool-neutral-90);
+  --dark-label-strong: var(--common-100);
+  --dark-label-alternative: rgba(255, 255, 255, 0.61);
+  --dark-line-normal-normal: rgba(255, 255, 255, 0.22);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    // 다크 모드 설정은 여기에 추가할 수 있습니다.
+    // 현재는 라이트 모드만 사용하므로 비워둡니다.
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+body {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  line-height: 1.6;
+  color: var(--label-normal);
+  background-color: var(--background-normal-normal);
+  overflow-x: hidden;
+  margin: 0;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+// 공통 버튼 스타일
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, var(--primary-normal) 0%, #3B37FF 100%);
+  color: var(--static-white);
+  text-decoration: none;
+  border-radius: 34px;
+  font-weight: 700;
+  font-size: 16px;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+// 반응형 미디어 쿼리
+@media (max-width: 768px) {
+  body {
+    padding: 0 16px;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+}
+
+h1 {
+  color: var(--label-normal);
+}
+
+p {
+  color: var(--label-alternative);
+}
+
+body.dark-mode {
+  background-color: var(--dark-background-normal-normal);
+  color: var(--dark-label-normal);
+}

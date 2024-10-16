@@ -1,0 +1,267 @@
+.contact-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 320px 32px 80px;
+  background-color: var(--background-normal-normal);
+  color: var(--label-normal);
+  transition: background-color 0.3s;
+
+  .contact-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+  }
+
+  .contact-text {
+    flex: 1;
+
+    h1 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.2;
+      color: var(--label-strong);
+    }
+
+    .subtitle {
+      font-size: 16px;
+      color: var(--label-alternative);
+      line-height: 1.5;
+    }
+  }
+
+  .contact-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    input,
+    select,
+    textarea,
+    .react-tel-input .form-control {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--line-normal-normal);
+      border-radius: 8px;
+      font-size: 14px;
+      transition: border-color 0.3s; // 배경색 전환은 제외하고 테두리 색상 전환만 유지
+      background-color: var(--background-normal-alternative);
+      color: var(--label-normal);
+
+      &:focus {
+        outline: none;
+        border-color: var(--primary-normal);
+        box-shadow: 0 0 0 2px rgba(49, 130, 246, 0.1);
+      }
+
+      &.error {
+        border-color: var(--status-negative);
+        animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+      }
+    }
+
+    textarea {
+      height: 120px;
+      resize: none;
+    }
+
+    .char-count {
+      text-align: right;
+      color: var(--label-alternative);
+      font-size: 12px;
+
+      &.exceed {
+        color: var(--status-negative);
+      }
+    }
+
+    button {
+      background-color: var(--primary-normal);
+      color: var(--static-white);
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s; // 배경색 전환 시간을 0.2초로 설정
+
+      &:hover {
+        background-color: var(--blue-60);
+      }
+    }
+
+    .react-tel-input {
+      .form-control {
+        width: 100% !important;
+        height: auto !important;
+        padding: 12px 12px 12px 48px !important;
+        border: 1px solid var(--line-normal-normal) !important;
+        border-radius: 8px !important;
+        font-size: 14px !important;
+        transition: all 0.3s ease !important;
+        background-color: var(--background-normal-alternative) !important;
+        color: var(--label-normal) !important;
+
+        &:focus {
+          border-color: var(--primary-normal) !important;
+          box-shadow: 0 0 0 2px rgba(49, 130, 246, 0.1) !important;
+        }
+      }
+
+      .flag-dropdown {
+        background-color: transparent !important;
+        border: none !important;
+        border-radius: 8px 0 0 8px !important;
+
+        &.open {
+          background-color: transparent !important;
+        }
+      }
+
+      .selected-flag {
+        background-color: transparent !important;
+        border-radius: 8px 0 0 8px !important;
+        
+        &:hover, &:focus {
+          background-color: transparent !important;
+        }
+      }
+
+      .country-list {
+        border-radius: 8px !important;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+        background-color: var(--background-normal-normal) !important;
+        
+        .country {
+          padding: 10px 15px !important;
+          
+          &:hover {
+            background-color: var(--background-normal-alternative) !important;
+          }
+        }
+
+        .highlight {
+          background-color: var(--background-normal-alternative) !important;
+        }
+      }
+    }
+
+    select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg width='14' height='8' viewBox='0 0 14 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L7 7L13 1' stroke='%23333333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      background-size: 14px 8px;
+      padding-right: 40px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 180px 20px 60px;
+
+    .contact-content {
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .contact-text,
+    .contact-form {
+      flex: none;
+    }
+
+    .contact-text h1 {
+      font-size: 28px;
+    }
+  }
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+body.dark-mode {
+  .contact-page {
+    background-color: var(--dark-background-normal-normal);
+    color: var(--dark-label-normal);
+
+    .contact-text {
+      h1 {
+        color: var(--dark-label-strong);
+      }
+
+      .subtitle {
+        color: var(--dark-label-alternative);
+      }
+    }
+
+    .contact-form {
+      input,
+      select,
+      textarea,
+      .react-tel-input .form-control {
+        background-color: var(--dark-background-normal-alternative);
+        color: var(--dark-label-normal);
+        border-color: var(--dark-line-normal-normal);
+        transition: background-color 0.3s;
+
+        &:focus {
+          border-color: var(--primary-normal);
+        }
+      }
+
+      .react-tel-input {
+        .form-control {
+          background-color: var(--dark-background-normal-alternative) !important;
+          color: var(--dark-label-normal) !important;
+          border-color: var(--dark-line-normal-normal) !important;
+        }
+
+        .country-list {
+          background-color: var(--dark-background-normal-normal) !important;
+
+          .country:hover {
+            background-color: var(--dark-background-normal-alternative) !important;
+          }
+
+          .highlight {
+            background-color: var(--dark-background-normal-alternative) !important;
+          }
+        }
+
+        .selected-flag {
+          .arrow {
+            border-top-color: var(--dark-label-normal) !important;
+          }
+        }
+      }
+
+      select {
+        background-image: url("data:image/svg+xml,%3Csvg width='14' height='8' viewBox='0 0 14 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L7 7L13 1' stroke='%23FFFFFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      }
+    }
+  }
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  line-height: 1.6;
+  color: var(--label-normal);
+  overflow-x: hidden;
+  margin: 0;
+}
