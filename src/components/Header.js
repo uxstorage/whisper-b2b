@@ -31,15 +31,15 @@ function Header({ isMenuOpen, toggleMenu }) {
     return (
         <header>
             <div className="container">
-                <a href="/" className="logo" onClick={handleNavClick}>
+                <a href="#/" className="logo" onClick={handleNavClick}>
                     {isDarkMode ? <WhisperLogoDark /> : <WhisperLogo />}
                 </a>
                 <nav className={isMenuOpen ? 'active' : ''}>
                     <ul>
-                        <li><a href="/#solutions" onClick={handleNavClick}>솔루션 소개</a></li>
-                        <li><a href="/#plans" onClick={handleNavClick}>플랜 소개</a></li>
+                        <li><a href="#/#solutions" onClick={handleNavClick}>솔루션 소개</a></li>
+                        <li><a href="#/#plans" onClick={handleNavClick}>플랜 소개</a></li>
                         <li>
-                            <a href="/contact" className="btn" onClick={handleNavClick}>
+                            <a href="#/contact" className="btn" onClick={handleNavClick}>
                                 <span>문의하기</span>
                             </a>
                         </li>
