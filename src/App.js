@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.scss';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -18,7 +18,7 @@ function App() {
   }, [isMenuOpen]);
 
   return (
-    <Router>
+    <Router basename="/whisper-b2b">
       <div className="App">
         <Header isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
         <Routes>
