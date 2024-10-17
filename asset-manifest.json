@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/whisper-b2b/static/css/main.4c39653e.css",
-    "main.js": "/whisper-b2b/static/js/main.0007ffbe.js",
+    "main.css": "/whisper-b2b/static/css/main.86e6ecb9.css",
+    "main.js": "/whisper-b2b/static/js/main.5314f125.js",
     "static/js/453.ad6eb26e.chunk.js": "/whisper-b2b/static/js/453.ad6eb26e.chunk.js",
     "static/media/homepage_ghost.gif": "/whisper-b2b/static/media/homepage_ghost.9bf79d1d194d9fa136e5.gif",
     "static/media/bx-bg.png": "/whisper-b2b/static/media/bx-bg.6ad8421cd2db7c530a96.png",
@@ -32,12 +32,12 @@
     "static/media/whisper-logo-dark.svg": "/whisper-b2b/static/media/whisper-logo-dark.1bd0ffd81dd58b12dfd822d2581afaf2.svg",
     "static/media/close-icon.svg": "/whisper-b2b/static/media/close-icon.b1028a2abadec9805a88369eefb7970c.svg",
     "index.html": "/whisper-b2b/index.html",
-    "main.4c39653e.css.map": "/whisper-b2b/static/css/main.4c39653e.css.map",
-    "main.0007ffbe.js.map": "/whisper-b2b/static/js/main.0007ffbe.js.map",
+    "main.86e6ecb9.css.map": "/whisper-b2b/static/css/main.86e6ecb9.css.map",
+    "main.5314f125.js.map": "/whisper-b2b/static/js/main.5314f125.js.map",
     "453.ad6eb26e.chunk.js.map": "/whisper-b2b/static/js/453.ad6eb26e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4c39653e.css",
-    "static/js/main.0007ffbe.js"
+    "static/css/main.86e6ecb9.css",
+    "static/js/main.5314f125.js"
   ]
 }
