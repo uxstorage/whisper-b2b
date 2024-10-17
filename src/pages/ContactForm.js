@@ -106,10 +106,10 @@ function ContactForm() {
         };
 
         await emailjs.send(
-          'service_d6085ue',  // 이메일 서비스 ID
-          'template_h9ckuji', // 이메일 템플릿 ID
+          'service_u0t35gg',  // 이메일 서비스 ID
+          'template_t9sdux9', // 이메일 템플릿 ID
           templateParams,     // 템플릿 매개변수
-          'A0jnRYgNG7oZ4JqWx' // Public Key
+          '8ExOe97hH6gGU7jz7' // Public Key
         );
 
         setToastMessage('문의가 성공적으로 제출되었습니다.');
