@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    transition : all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 body {
@@ -108,6 +108,8 @@ body {
 
     .lottie-container {
         position: relative;
+        display: flex;
+        justify-content: center;
         width: 100%;
         max-width: 600px;
         margin: 20px auto 0;
@@ -334,6 +336,7 @@ body {
             color: #999;
             margin-bottom: 24px;
         }
+
         .read-more {
             display: inline-flex;
             align-items: center;
@@ -1680,6 +1683,7 @@ body {
                 max-width: 160px;
                 margin-bottom: 32px;
                 display: inline-block;
+
                 body.dark-mode & {
                     color: var(--primary-normal);
                     background: var(--dark-background-normal-alternative);
