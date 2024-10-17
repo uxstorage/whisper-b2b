@@ -12,7 +12,7 @@ function Footer() {
             <div className="container">
                 <div className="footer-content">
                     <div className="footer-top">
-                        <p>블록체인 기술로 서비스를 업그레이드하고 싶으신가요</p>
+                        <p data-text="블록체인 기술로 서비스를 업그레이드하고 싶으신가요" className="shining-text">블록체인 기술로 서비스를 업그레이드하고 싶으신가요</p>
                         <Link to="/contact" className="btn footer-btn">
                             <span>문의하기</span>
                         </Link>

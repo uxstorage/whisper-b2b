@@ -61,10 +61,6 @@
   --blue-55: #1A75FF;
   --blue-60: #3385FF;
 
-  // Other Colors (if needed)
-  // Add any other color variables from the JSON here
-
-  // 다크모드 변수
   --dark-background-normal-normal: var(--cool-neutral-10);
   --dark-background-normal-alternative: var(--cool-neutral-15);
   --dark-background-elevated-normal: var(--cool-neutral-15);
@@ -77,8 +73,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    // 다크 모드 설정은 여기에 추가할 수 있습니다.
-    // 현재는 라이트 모드만 사용하므로 비워둡니다.
+
   }
 }
 
@@ -87,6 +82,8 @@
   padding: 0;
   box-sizing: border-box;
   transition: background-color 0.2s, color 0.2s;
+  word-wrap: break-word;
+  word-break: keep-all;
 }
 
 body {
@@ -105,7 +102,7 @@ body {
   box-sizing: border-box;
 }
 
-// 공통 버튼 스타일
+
 .btn {
   display: inline-flex;
   align-items: center;

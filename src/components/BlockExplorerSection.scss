@@ -36,7 +36,7 @@
         margin-bottom: 32px;
         display: inline-block;
 
-        body.dark-mode & {
+        body.dark.mode & {
             color: var(--primary-normal);
             background: var(--dark-background-normal-alternative);
             border-color: var(--dark-line-normal-normal);
@@ -53,7 +53,7 @@
         margin-bottom: 32px;
         line-height: 1.2;
 
-        body.dark-mode & {
+        body.dark.mode & {
             color: var(--dark-label-strong);
         }
 
@@ -105,6 +105,12 @@
         border-radius: 12px;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     }
+
+    .text-overlay {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 10px;
+        border-radius: 5px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -127,5 +133,22 @@
                 margin: 6px;
             }
         }
+    }
+
+    .text-content {
+        position: static;
+        padding: 20px;
+    }
+
+    .image-container {
+        height: auto;
+        max-height: 300px;
+        overflow: hidden;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
     }
 }
