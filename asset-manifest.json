@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/whisper-b2b/static/css/main.0765b635.css",
-    "main.js": "/whisper-b2b/static/js/main.ac3fca30.js",
-    "static/js/453.99dcf01f.chunk.js": "/whisper-b2b/static/js/453.99dcf01f.chunk.js",
+    "main.css": "/whisper-b2b/static/css/main.ba90b123.css",
+    "main.js": "/whisper-b2b/static/js/main.04f33cb2.js",
+    "static/js/453.ad6eb26e.chunk.js": "/whisper-b2b/static/js/453.ad6eb26e.chunk.js",
     "static/media/homepage_ghost.gif": "/whisper-b2b/static/media/homepage_ghost.9bf79d1d194d9fa136e5.gif",
     "static/media/bx-bg.png": "/whisper-b2b/static/media/bx-bg.6ad8421cd2db7c530a96.png",
     "static/media/solution-bg.png": "/whisper-b2b/static/media/solution-bg.2eb0254a52e812c1cbac.png",
@@ -31,12 +31,12 @@
     "static/media/whisper-logo.svg": "/whisper-b2b/static/media/whisper-logo.53fd440dc630c4eff1ba68f09e80e3f5.svg",
     "static/media/whisper-logo-dark.svg": "/whisper-b2b/static/media/whisper-logo-dark.1bd0ffd81dd58b12dfd822d2581afaf2.svg",
     "index.html": "/whisper-b2b/index.html",
-    "main.0765b635.css.map": "/whisper-b2b/static/css/main.0765b635.css.map",
-    "main.ac3fca30.js.map": "/whisper-b2b/static/js/main.ac3fca30.js.map",
-    "453.99dcf01f.chunk.js.map": "/whisper-b2b/static/js/453.99dcf01f.chunk.js.map"
+    "main.ba90b123.css.map": "/whisper-b2b/static/css/main.ba90b123.css.map",
+    "main.04f33cb2.js.map": "/whisper-b2b/static/js/main.04f33cb2.js.map",
+    "453.ad6eb26e.chunk.js.map": "/whisper-b2b/static/js/453.ad6eb26e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0765b635.css",
-    "static/js/main.ac3fca30.js"
+    "static/css/main.ba90b123.css",
+    "static/js/main.04f33cb2.js"
   ]
 }
