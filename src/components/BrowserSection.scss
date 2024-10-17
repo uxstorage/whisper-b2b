@@ -1,0 +1,256 @@
+.browser {
+    background-size: cover;
+    width: 100%;
+    max-width: 1200px;
+    margin: 120px auto 0;
+    padding: 40px 14px;
+    box-sizing: border-box;
+    border-radius: 50px;
+    border: 1px solid #F0F0F2;
+    display: flex;
+
+    body.dark-mode & {
+        border-color: var(--dark-line-normal-normal);
+    }
+
+    .container {
+        max-width: 1040px;
+        margin: 0 auto;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .section-tag {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--primary-normal);
+        background: var(--background-normal-alternative);
+        padding: 8px 16px;
+        border: 1px solid var(--line-normal-normal);
+        border-radius: 20px;
+        text-transform: uppercase;
+        box-shadow: 0px 4px 80px 0px var(--fill-alternative),
+            0px 4px 4px 0px var(--fill-normal),
+            0px 0px 4px 0px var(--fill-strong) inset;
+        max-width: 160px;
+        margin-bottom: 32px;
+        display: inline-block;
+
+        body.dark-mode & {
+            background: var(--dark-background-normal-alternative);
+            border-color: var(--dark-line-normal-normal);
+            box-shadow: 0px 4px 80px 0px var(--dark-fill-alternative),
+                0px 4px 4px 0px var(--dark-fill-normal),
+                0px 0px 4px 0px var(--dark-fill-strong) inset;
+        }
+    }
+
+    .section-title {
+        font-size: 40px;
+        font-weight: 700;
+        color: var(--label-strong);
+        margin-bottom: 32px;
+        line-height: 1.2;
+
+        body.dark-mode & {
+            color: var(--dark-label-strong);
+        }
+
+        span {
+            background: linear-gradient(135deg, var(--primary-normal) 0%, var(--accent-violet) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+
+    .section-description {
+        color: var(--label-alternative);
+        text-align: center;
+        font-family: Pretendard;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.5;
+        margin-bottom: 32px;
+
+        body.dark-mode & {
+            color: var(--dark-label-alternative);
+        }
+    }
+
+    .feature-list {
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 32px;
+
+        li {
+            font-size: 1rem;
+            margin: 0.5rem;
+            padding: 0.5rem 1rem;
+            position: relative;
+            display: flex;
+            align-items: center;
+
+            &::before {
+                content: '✓';
+                margin-right: 0.5rem;
+                color: #007bff;
+            }
+
+            body.dark-mode & {
+                color: var(--dark-label-normal);
+            }
+        }
+    }
+
+    .web3-browser-image {
+        max-width: 640px;
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+.features {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+
+    .feature-wrapper {
+        display: flex;
+        height: 240px;
+        padding: var(--Spacing-100, 10px);
+        flex-direction: column;
+        align-items: center;
+        flex: 1 0 0;
+
+        border-radius: 28px;
+        background: rgba(255, 255, 255, 0.05);
+        box-shadow: 0px 20px 120px 0px rgba(0, 0, 0, 0.05);
+        backdrop-filter: blur(1.5px);
+
+        body.dark-mode & {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .feature {
+            display: flex;
+            padding: 24px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 24px;
+            flex: 1 0 0;
+            align-self: stretch;
+            border-radius: 20px;
+            border: 1px solid #F0F0F2;
+
+            body.dark-mode & {
+                border-color: var(--dark-line-normal-normal);
+            }
+
+            img {
+                width: 50px;
+                height: 50px;
+            }
+
+            .text-content {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+                align-self: stretch;
+
+                h3 {
+                    color: var(--label-normal);
+                    font-family: Pretendard;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 22.4px;
+
+                    body.dark-mode & {
+                        color: var(--dark-label-normal);
+                    }
+                }
+
+                p {
+                    color: var(--label-alternative);
+                    text-align: start;
+                    font-family: Pretendard;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 19.6px;
+
+                    body.dark-mode & {
+                        color: var(--dark-label-alternative);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .block-explorer {
+        padding: 60px 0;
+
+        .section-title {
+            font-size: 32px;
+        }
+
+        .section-description {
+            font-size: 16px;
+        }
+
+        .feature-list {
+            flex-wrap: wrap;
+
+            li {
+                margin: 6px;
+            }
+        }
+    }
+}
+
+.web3-browser-image {
+    width: 640px;
+    height: auto;
+}
+
+.web3-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 32px;
+}
+
+.image-container {
+    text-align: center;
+}
+
+.web3-browser-image {
+    width: 640px;
+    height: auto;
+    max-width: 100%;
+}
+
+.features {
+    width: 100%;
+}

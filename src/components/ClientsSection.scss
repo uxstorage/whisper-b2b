@@ -1,0 +1,84 @@
+
+.clients {
+    text-align: center;
+    background-color: var(--background-normal-normal);
+
+    body.dark-mode & {
+        background-color: var(--dark-background-normal-normal);
+        color: var(--dark-label-normal);
+    }
+
+    .section-title {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--primary-normal);
+        background: var(--background-normal-alternative);
+        padding: 8px 16px;
+        border: 1px solid var(--line-normal-normal);
+        border-radius: 20px;
+        text-transform: uppercase;
+        box-shadow: 0 8px 8px var(--fill-alternative);
+        margin-bottom: 32px;
+        display: inline-block;
+        max-width: 100%;
+        text-align: center;
+
+        body.dark-mode & {
+            background: var(--dark-background-normal-alternative);
+            border-color: var(--dark-line-normal-normal);
+            color: var(--primary-normal);
+            box-shadow: 0 8px 8px var(--dark-fill-alternative);
+        }
+    }
+
+    .section-subtitle {
+        font-size: 32px;
+        font-weight: bold;
+        margin-bottom: 40px;
+        line-height: 1.2;
+        color: var(--label-normal);
+        text-align: center;
+
+        body.dark-mode & {
+            color: var(--dark-label-normal);
+        }
+
+        span {
+            background: linear-gradient(135deg, #1D74FF 0%, #3B37FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+
+    .client-logos {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+
+        img {
+            max-width: 150px;
+            height: auto;
+            margin: 20px;
+            transition: filter 0.3s ease;
+        }
+
+        body.dark-mode & img {
+            filter: brightness(0) invert(1);
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .clients {
+        .section-subtitle {
+            font-size: 24px;
+        }
+
+        max-width: 100%;
+
+        .client-logos img {
+            max-width: 100px;
+        }
+    }
+}

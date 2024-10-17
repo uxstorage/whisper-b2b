@@ -1,0 +1,112 @@
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.hero {
+    min-height: 780px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background-image: url('../assets/Container.png');
+    background-size: cover;
+    background-color: var(--background-normal-normal);
+    background-position: center;
+    padding: 140px 0 0 0;
+    margin: 0 -20px;
+
+    body.dark-mode & {
+        background-image: url('../assets/Container2.png');
+        background-color: var(--dark-background-normal-normal);
+    }
+
+    h1 {
+        font-size: 60px;
+        margin-bottom: 64px;
+        color: var(--label-normal);
+        font-weight: 700;
+        line-height: 1.2;
+
+        body.dark-mode & {
+            color: var(--dark-label-normal);
+        }
+
+        span {
+            color: var(--primary-normal);
+            background: linear-gradient(135deg, var(--primary-normal) 0%, #3B37FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+
+    .btn {
+        width: 120px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 24px;
+        background: linear-gradient(135deg, #1d74ff 0%, #3B37FF 100%);
+        color: white;
+        text-decoration: none;
+        border-radius: 34px;
+        font-weight: 700;
+        font-size: 16px;
+        margin-top: 24px;
+        position: relative;
+        border: none;
+        z-index: 1;
+
+        span {
+            position: relative;
+            z-index: 99;
+            background: #fff;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        svg {
+            margin-left: 8px;
+            font-size: 14px;
+            position: relative;
+            z-index: 2;
+        }
+
+        &:hover {
+            opacity: 0.9;
+        }
+    }
+
+    .lottie-container {
+        position: relative;
+        width: 100%;
+        max-width: 600px;
+        margin: 20px auto 0;
+        overflow: visible;
+        margin-bottom: 40px;
+        display: flex;
+        justify-content: center;
+    }
+
+    @media (max-width: 768px) {
+        .hero h1 {
+            font-size: 36px;
+        }
+
+        .lottie-container {
+            max-width: 400px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 36px;
+    }
+}
