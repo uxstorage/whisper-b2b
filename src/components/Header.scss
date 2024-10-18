@@ -72,7 +72,7 @@ header {
                     transition: all 0.3s ease;
 
                     &:hover {
-                        color: var(--static-white);
+                        color: var(--label-normal);
                     }
                 }
             }
@@ -95,10 +95,15 @@ header {
         span {
             position: relative;
             z-index: 1;
+            color: var(--static-white);
         }
 
         &:hover {
             opacity: 0.9;
+            
+            span {
+                color: var(--static-white);
+            }
         }
     }
 
@@ -128,7 +133,7 @@ header {
     }
 
     .theme-toggle {
-        background: var(--background-normal-alternative);
+        background: var(--background-normal-normal);
         border: none;
         cursor: pointer;
         font-size: 24px;
@@ -142,7 +147,7 @@ header {
         transition: background-color 0.3s;
 
         body.dark-mode & {
-            background: var(--dark-background-normal-alternative);
+            background: var(--dark-background-normal-normal);
         }
 
         &:hover {

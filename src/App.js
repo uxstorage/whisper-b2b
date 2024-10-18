@@ -5,6 +5,9 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import ContactForm from './pages/ContactForm';
+import Modal from './components/Modal';
+import UsecaseSection from './components/UsecaseSection';
+import { ThemeProvider } from './contexts/ThemeContext';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,21 +15,26 @@ function App() {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? 'hidden' : 'visible';
   }, [isMenuOpen]);
 
   return (
-    <Router>
-      <div className="App">
-        <Header isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/contact" element={<ContactForm />} />
-        </Routes>
-        <Footer />
-      </div>
-    </Router>
+    <ThemeProvider>
+      <Router>
+        <div className="App">
+          <Header isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
+          <Routes>
+            <Route path="/" element={<Home />}>
+              <Route path="modal-usecase-:id" element={<Home />} />
+            </Route>
+            <Route path="/contact" element={<ContactForm />} />
+          </Routes>
+          <Footer />
+        </div>
+      </Router>
+    </ThemeProvider>
   );
 }
 

@@ -31,9 +31,9 @@ function Header({ isMenuOpen, toggleMenu }) {
     return (
         <header>
             <div className="container">
-                <a href="#/" className="logo" onClick={handleNavClick}>
-                    {isDarkMode ? <WhisperLogoDark /> : <WhisperLogo />}
-                </a>
+                <Link to="/" className="logo" onClick={handleNavClick}>
+                    {isDarkMode ? <WhisperLogoDark className="logo-svg" /> : <WhisperLogo className="logo-svg" />}
+                </Link>
                 <nav className={isMenuOpen ? 'active' : ''}>
                     <ul>
                         <li><a href="#/#solutions" onClick={handleNavClick}>솔루션 소개</a></li>

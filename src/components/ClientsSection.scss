@@ -24,7 +24,7 @@
         text-align: center;
 
         body.dark-mode & {
-            background: var(--dark-background-normal-alternative);
+            background: var(--dark-background-normal-normal);
             border-color: var(--dark-line-normal-normal);
             color: var(--primary-normal);
             box-shadow: 0 8px 8px var(--dark-fill-alternative);

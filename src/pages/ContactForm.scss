@@ -45,7 +45,7 @@
       border: 1px solid var(--line-normal-normal);
       border-radius: 8px;
       font-size: 14px;
-      transition: border-color 0.3s; // 배경색 전환은 제외하고 테두리 색상 전환만 유지
+      transition: border-color 0.3s;
       background-color: var(--background-normal-alternative);
       color: var(--label-normal);
 
@@ -68,7 +68,7 @@
 
     .char-count {
       text-align: right;
-      color: var(--label-alternative);
+      color: var(--dark-label-alternative);
       font-size: 12px;
 
       &.exceed {
@@ -85,7 +85,7 @@
       font-size: 16px;
       font-weight: 600;
       cursor: pointer;
-      transition: background-color 0.3s; // 배경색 전환 시간을 0.2초로 설정
+      transition: background-color 0.3s;
 
       &:hover {
         background-color: var(--blue-60);

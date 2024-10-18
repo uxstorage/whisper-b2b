@@ -74,7 +74,7 @@
         text-align: center;
 
         body.dark-mode & {
-            background: var(--dark-background-normal-alternative);
+            background: var(--dark-background-normal-normal);
             border-color: var(--dark-line-normal-normal);
             color: var(--primary-normal);
             box-shadow: 0 8px 8px var(--dark-fill-alternative);
@@ -124,7 +124,7 @@
             box-shadow: 0px 10px 100px 0px rgba(0, 0, 0, 0.05);
 
             body.dark-mode & {
-                background-color: rgba(var(--dark-background-normal-normal-rgb), 0.5);
+                background-color: var(--dark-background-normal-alternative);;
             }
         }
 

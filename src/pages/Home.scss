@@ -52,7 +52,7 @@ body {
         text-align: center;
 
         body.dark-mode & {
-            background: var(--dark-background-normal-alternative);
+            background: var(--dark-background-normal-normal);
             border-color: var(--dark-line-normal-normal);
             color: var(--primary-normal);
             box-shadow: 0 8px 8px var(--dark-fill-alternative);
@@ -498,7 +498,7 @@ body {
 
         body.dark-mode & {
             color: var(--primary-normal);
-            background: var(--dark-background-normal-alternative);
+            background: var(--dark-background-normal-normal);
             border-color: var(--dark-line-normal-normal);
             box-shadow: 0px 4px 80px 0px var(--dark-fill-alternative),
                 0px 4px 4px 0px var(--dark-fill-normal),
@@ -633,7 +633,7 @@ body {
         display: inline-block;
 
         body.dark-mode & {
-            background: var(--dark-background-normal-alternative);
+            background: var(--dark-background-normal-normal);
             border-color: var(--dark-line-normal-normal);
             box-shadow: 0px 4px 80px 0px var(--dark-fill-alternative),
                 0px 4px 4px 0px var(--dark-fill-normal),
@@ -890,7 +890,7 @@ body {
 
                 body.dark-mode & {
                     color: var(--primary-normal);
-                    background: var(--dark-background-normal-alternative);
+                    background: var(--dark-background-normal-normal);
                     border-color: var(--dark-line-normal-normal);
                     box-shadow: 0px 4px 80px 0px var(--dark-fill-alternative),
                         0px 4px 4px 0px var(--dark-fill-normal),

@@ -14,55 +14,70 @@
 
 .modal-content {
     background-color: var(--background-normal-normal);
-    padding: 20px 20px 80px;
     border-radius: 20px;
-    width: 90%;
+    width: 100%;
     max-width: 800px;
-    height: auto;
-    max-height: 90vh;
+    height: 90vh;
     position: relative;
-    overflow-y: auto;
     display: flex;
     flex-direction: column;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+    overflow: hidden;
 
-    &::-webkit-scrollbar {
-        display: none;
+    body.dark-mode & {
+        background-color: var(--dark-background-normal-normal);
+        color: var(--dark-label-normal);
     }
+}
+
+.modal-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 16px;
+    background-color: var(--background-normal-normal);
+    z-index: 3;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 
     body.dark-mode & {
         background-color: var(--dark-background-normal-normal);
     }
 }
 
-.modal-close {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: rgba(0, 0, 0, 0.1);
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    font-size: 24px;
-    cursor: pointer;
-    color: var(--label-strong);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+.modal-body {
+    padding: 56px 10px 10px; // 상단 패딩 유지, 좌우 하단 패딩 감소
+    overflow-y: auto;
+    height: 100%;
+    padding-top: 80px; // 헤더의 높이만큼 추가 패딩
 
-    &:hover {
-        transform: rotate(90deg);
-        background-color: var(--primary-normal);
-        color: white;
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: var(--background-normal-alternative);
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--line-normal-normal);
+        border-radius: 4px;
     }
 
     body.dark-mode & {
-        background: rgba(255, 255, 255, 0.1);
-        color: var(--dark-label-strong);
+        &::-webkit-scrollbar-track {
+            background: var(--dark-background-normal-alternative);
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: var(--dark-line-normal-normal);
+        }
     }
+}
+
+.modal-close {
+    display: none;
 }
 
 .modal-close-mobile {
@@ -71,29 +86,22 @@
 
 .modal-image {
     width: 100%;
-    height: 406px;
+    height: 1500px;
     object-fit: cover;
     border-radius: 16px;
     margin-bottom: 20px;
 }
 
 .modal-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    text-align: start;
+    font-size: 20px;
     padding: 0 24px;
-    color: var(--label-strong);
-
-    body.dark-mode & {
-        color: var(--dark-label-strong);
-    }
+    text-align: left;
 }
 
 .modal-description {
     font-size: 16px;
     line-height: 1.5;
-    text-align: start;
+    text-align: left;
     padding: 0 24px;
     color: var(--label-alternative);
     font-family: Pretendard;
@@ -122,54 +130,87 @@
         height: 100%;
         max-height: none;
         border-radius: 0;
-        padding: 20px 20px 80px;
     }
 
-    .modal-image {
-        height: auto;
-        max-height: 50vh;
-        border-radius: 4px;
+    .modal-body {
+        padding: 72px 10px 10px; // 상단 패딩 유지, 좌우 하단 패딩 감소
     }
 
-    .modal-title {
-        font-size: 20px;
-        padding: 0 4px;
+    .modal-header {
+        padding: 10px;
+    }
+}
+
+.modal-share,
+.modal-theme-toggle,
+.modal-close {
+    background: var(--background-normal-normal);
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+    padding: 0;
+    color: var(--label-normal);
+
+    body.dark-mode & {
+        background: var(--dark-background-normal-normal);
+        color: var(--dark-label-normal);
     }
 
-    .modal-description {
-        font-size: 14px;
-        padding: 0 4px;
-        margin-top: 8px;
-        line-height: 24px;
+    &:hover {
+        background-color: var(--background-normal-alternative);
     }
 
-    .modal-close {
-        display: none;
+    body.dark-mode &:hover {
+        background-color: var(--dark-background-normal-alternative);
     }
+}
 
-    .modal-close-mobile {
-        display: block;
-        position: fixed;
-        bottom: 20px;
-        width: 84%;
-        left: 50%;
-        transform: translateX(-50%);
-        background: linear-gradient(135deg, var(--primary-normal) 0%, #3B37FF 100%);
-        border: none;
-        border-radius: 34px;
-        color: var(--static-white);
-        font-size: 16px;
-        font-weight: 700;
-        padding: 12px 24px;
-        cursor: pointer;
-        transition: opacity 0.3s ease;
-
-        &:hover {
-            opacity: 0.9;
-        }
+.modal-content {
+    svg {
+        width: 24px;
+        height: 24px;
+        stroke: var(--label-normal);
+        fill: none;
+        stroke-width: 2;
 
         body.dark-mode & {
-            background: linear-gradient(135deg, var(--dark-primary-normal) 0%, #3B37FF 100%);
+            stroke: var(--dark-label-normal);
         }
+    }
+}
+
+.modal-theme-toggle {
+    background: var(--background-normal-normal);
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+    padding: 0;
+
+    body.dark.mode & {
+        background: var(--dark-background-normal-normal);
+    }
+
+    &:hover {
+        background-color: var(--background-normal-alternative);
+    }
+
+    body.dark.mode &:hover {
+        background-color: var(--dark-background-normal-alternative);
     }
 }

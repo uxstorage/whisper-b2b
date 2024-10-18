@@ -142,7 +142,7 @@
         margin-top: 40px;
         color: var(--dark-label-normal);
 
-        body.dark.mode & {
+        body.dark-mode & {
             color: var(--dark-label-normal);
         }
     }

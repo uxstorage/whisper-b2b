@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "title": "Web3 Payments",
+        "thumbnail": "/images/adoption1.png",
+        "content": [
+            {
+                "type": "text",
+                "value": "스테이블 코인 기반 온라인 상품 결제"
+            },
+            {
+                "type": "image",
+                "value": "/images/adoption1-detail.png",
+                "caption": "Web3 Payments 예시"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "title": "NFT Vouchers",
+        "thumbnail": "/images/adoption2.png",
+        "content": [
+            {
+                "type": "text",
+                "value": "NFT 상품권 및 자동정산 컨트랙트"
+            },
+            {
+                "type": "image",
+                "value": "/images/adoption2-detail.png",
+                "caption": "NFT Vouchers 예시"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Scan to Payments",
+        "thumbnail": "/images/adoption3.png",
+        "content": [
+            {
+                "type": "text",
+                "value": "실물 자산 기반 포인트 토큰 충전 및 결제"
+            },
+            {
+                "type": "image",
+                "value": "/images/adoption3-detail.png",
+                "caption": "Scan to Payments 예시"
+            }
+        ]
+    }
+]

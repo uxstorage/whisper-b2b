@@ -41,7 +41,7 @@
         display: inline-block;
 
         body.dark-mode & {
-            background: var(--dark-background-normal-alternative);
+            background: var(--dark-background-normal-normal);
             border-color: var(--dark-line-normal-normal);
             box-shadow: 0px 4px 80px 0px var(--dark-fill-alternative),
                 0px 4px 4px 0px var(--dark-fill-normal),

@@ -11,7 +11,7 @@
   --label-assistive: rgba(46, 47, 51, 0.28);
   --label-disable: rgba(46, 47, 51, 0.16);
   --background-normal-normal: var(--common-100);
-  --background-normal-alternative: var(--cool-neutral-99);
+  --background-normal-alternative: var(--cool-neutral-98);
   --background-elevated-normal: var(--common-100);
   --background-elevated-alternative: var(--cool-neutral-98);
   --interaction-inactive: var(--cool-neutral-70);
@@ -62,13 +62,13 @@
   --blue-60: #3385FF;
 
   --dark-background-normal-normal: var(--cool-neutral-10);
-  --dark-background-normal-alternative: var(--cool-neutral-15);
+  --dark-background-normal-alternative: var(--cool-neutral-25);
   --dark-background-elevated-normal: var(--cool-neutral-15);
   --dark-background-elevated-alternative: var(--cool-neutral-25);
   --dark-label-normal: var(--cool-neutral-90);
   --dark-label-strong: var(--common-100);
   --dark-label-alternative: rgba(255, 255, 255, 0.61);
-  --dark-line-normal-normal: rgba(255, 255, 255, 0.22);
+  --dark-line-normal-normal: var(--cool-neutral-25);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -143,4 +143,5 @@ p {
 body.dark-mode {
   background-color: var(--dark-background-normal-normal);
   color: var(--dark-label-normal);
+  --primary-normal: #3766ff;
 }
