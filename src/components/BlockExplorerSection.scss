@@ -90,7 +90,7 @@
     .feature-list {
         position: relative;
         z-index: 2;
-        background-color: rgba(255, 255, 255, 0.8);
+        background-color: var(--background-normal-alternative);
         padding: 20px;
         border-radius: 10px;
         margin-bottom: 40px;
@@ -99,6 +99,10 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+
+        body.dark-mode & {
+            background-color: transparent;
+        }
 
         li {
             font-size: 1rem;
