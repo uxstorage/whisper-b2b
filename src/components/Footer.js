@@ -22,7 +22,7 @@ function Footer() {
                             <div className="footer-logo">
                                 <img src={footerImage} alt="WHISPER 로고" />
                             </div>
-                            <div className="footer-social">
+                            <div className="social-icons">
                                 <a href="#" className="social-icon"><img src={twitterIcon} alt="Twitter" /></a>
                                 <a href="#" className="social-icon"><img src={facebookIcon} alt="Facebook" /></a>
                                 <a href="#" className="social-icon"><img src={instagramIcon} alt="Instagram" /></a>

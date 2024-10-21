@@ -287,6 +287,9 @@ body {
         display: flex;
         align-items: center;
         gap: 120px;
+        @media (max-width: 768px) {
+            gap: 40px;
+        }
     }
 
     .content {
@@ -377,6 +380,9 @@ body {
         display: flex;
         align-items: center;
         gap: 120px;
+        @media (max-width: 768px) {
+            gap: 40px;
+        }
     }
 
     .content {
@@ -601,11 +607,16 @@ body {
     border: 1px solid #F0F0F2;
     display: flex;
 
+    @media (max-width: 768px) {
+        width: 90%;
+    }
+
     body.dark-mode & {
         border-color: var(--dark-line-normal-normal);
     }
 
     .container {
+        overflow: visible;
         max-width: 1040px;
         margin: 0 auto;
         text-align: center;
@@ -794,6 +805,7 @@ body {
 @media (max-width: 768px) {
     .block-explorer {
         padding: 60px 0;
+        width: 90%;
 
         .section-title {
             font-size: 32px;
@@ -1118,7 +1130,7 @@ body {
 
 @media (max-width: 768px) {
     .solution {
-        width: 100%;
+        width: 90%;
         padding: 40px 20px 0 20px;
 
         .container {
@@ -1171,6 +1183,7 @@ body {
 .wallet .container,
 .web3-features .container {
     text-align: center;
+    overflow: visible;
 }
 
 .homepage-ghost {
