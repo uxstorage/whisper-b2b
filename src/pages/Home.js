@@ -52,6 +52,7 @@ function Home() {
 
     // UsecaseSection에 props로 전달할 함수들
     const openModal = (usecase) => {
+        console.log('Opening modal with usecase:', usecase);
         setSelectedUsecase(usecase);
         setModalOpen(true);
     };

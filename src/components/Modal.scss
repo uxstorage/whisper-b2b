@@ -1,3 +1,35 @@
+@keyframes fadeIn {
+  0% { background: transparent; }
+  100% { background: rgba(0, 0, 0, 0.5); }
+}
+
+@keyframes fadeOut {
+  0% { background: rgba(0, 0, 0, 0.5); }
+  100% { background: transparent; }
+}
+
+@keyframes scaleUp {
+  0% {
+    transform: scale(0.8) translateY(1000px);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleDown {
+  0% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.8) translateY(1000px);
+    opacity: 0;
+  }
+}
+
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -10,6 +42,11 @@
     justify-content: center;
     z-index: 1000;
     overflow: hidden;
+    animation: fadeIn 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+
+    &.closing {
+        animation: fadeOut 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+    }
 }
 
 .modal-content {
@@ -23,6 +60,11 @@
     flex-direction: column;
     overflow: hidden;
     transition: background-color 0.2s, color 0.2s;
+    animation: scaleUp 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+
+    &.closing {
+        animation: scaleDown 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+    }
 
     body.dark-mode & {
         background-color: var(--dark-background-normal-normal);
@@ -49,7 +91,7 @@
 }
 
 .modal-body {
-    padding: 56px 10px 10px; // 상단 패딩 유지, 좌우 하단 패딩 감소
+    padding: 56px 40px 10px; // 상단 패딩 유지, 좌우 하단 패딩 감소
     overflow-y: auto;
     height: 100%;
     padding-top: 80px; // 헤더의 높이만큼 추가 패딩
@@ -88,14 +130,14 @@
 
 .modal-image {
     width: 100%;
-    height: 1500px;
+    height: auto;
     object-fit: cover;
     border-radius: 16px;
     margin-bottom: 20px;
 }
 
 .modal-title {
-    font-size: 20px;
+    font-size: 24px;
     padding: 0 24px;
     text-align: left;
     transition: color 0.2s;
@@ -107,16 +149,14 @@
 }
 
 .modal-description {
-    font-size: 16px;
-    line-height: 1.5;
+    font-size: 20px;
+    line-height: 1.6;
     text-align: left;
     padding: 0 24px;
     color: var(--label-normal);
     font-family: Pretendard;
-    font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 28px;
     margin-top: 24px;
 
     body.dark-mode & {

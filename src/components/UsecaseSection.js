@@ -39,31 +39,15 @@ function UsecaseSection({ modalOpen, selectedUsecase, openModal, closeModal }) {
                     ))}
                 </div>
             </div>
-            {modalOpen && (
-                <Modal isOpen={modalOpen} onClose={closeModal} usecaseId={selectedUsecase?.id}>
-                    {selectedUsecase && (
-                        <div className="modal-usecase">
-                            <div className="modal-content">
-                                <h2 className="modal-title">{selectedUsecase.title}</h2>
-                                {selectedUsecase.content.map((item, index) => {
-                                    switch(item.type) {
-                                        case 'text':
-                                            return <p key={index} className="modal-description">{item.value}</p>;
-                                        case 'list':
-                                            return (
-                                                <ul key={index} className="modal-list">
-                                                    {item.value.map((listItem, listIndex) => (
-                                                        <li key={listIndex}>{listItem}</li>
-                                                    ))}
-                                                </ul>
-                                            );
-                                        default:
-                                            return null;
-                                    }
-                                })}
-                            </div>
-                        </div>
-                    )}
+            {modalOpen && selectedUsecase && (
+                <Modal 
+                    key={selectedUsecase.id}
+                    isOpen={modalOpen} 
+                    onClose={closeModal} 
+                    usecaseId={selectedUsecase.id} 
+                    selectedUsecase={selectedUsecase}
+                >
+                    {/* Modal content */}
                 </Modal>
             )}
         </section>

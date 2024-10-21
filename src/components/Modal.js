@@ -6,16 +6,19 @@ import { ReactComponent as ShareIcon } from '../assets/share-icon.svg';
 import { ReactComponent as LinkIcon } from '../assets/link-icon.svg';
 import Toast from './Toast';
 import { useLocation, useNavigate } from 'react-router-dom';
+import membleAppImage from '../assets/memble-app.jpg';
 
 function Modal({ isOpen, onClose, children, usecaseId, selectedUsecase }) {
     const { isDarkMode, toggleDarkMode } = useContext(ThemeContext);
     const [toast, setToast] = useState({ show: false, message: '', type: 'success' });
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+    const [isClosing, setIsClosing] = useState(false);
     const location = useLocation();
     const navigate = useNavigate();
 
     useEffect(() => {
         if (isOpen) {
+            setIsClosing(false);
             document.body.style.overflow = 'hidden';
         } else {
             document.body.style.overflow = 'unset';
@@ -37,21 +40,20 @@ function Modal({ isOpen, onClose, children, usecaseId, selectedUsecase }) {
     useEffect(() => {
         if (isOpen && usecaseId) {
             navigate(`#modal-usecase-${usecaseId}`, { replace: true });
-        } else if (!isOpen) {
+        } else if (!isOpen && !isClosing) {
             navigate('', { replace: true });
         }
-    }, [isOpen, navigate, usecaseId]);
+    }, [isOpen, navigate, usecaseId, isClosing]);
 
     useEffect(() => {
         console.log('Selected Usecase:', selectedUsecase);
     }, [selectedUsecase]);
 
-    if (!isOpen) return null;
+    if ((!isOpen && !isClosing) || !selectedUsecase) return null;
 
     const handleOverlayClick = (e) => {
         if (e.target === e.currentTarget) {
-            onClose();
-            navigate('', { replace: true });
+            handleClose();
         }
     };
 
@@ -98,20 +100,23 @@ function Modal({ isOpen, onClose, children, usecaseId, selectedUsecase }) {
                 setToast({ show: true, message: '링크가 클립보드에 복사되었습니다.', type: 'success' });
             } catch (err) {
                 console.error('링크 복사 실패:', err);
-                setToast({ show: true, message: '링크 복���에 실패했습니다.', type: 'error' });
+                setToast({ show: true, message: '링크 복사에 실패했습니다.', type: 'error' });
             }
             document.body.removeChild(textArea);
         }
     };
 
     const handleClose = () => {
-        onClose();
-        navigate('', { replace: true });
+        setIsClosing(true);
+        setTimeout(() => {
+            setIsClosing(false);
+            onClose();
+        }, 500);
     };
 
     return (
-        <div className={`modal-overlay ${isDarkMode ? 'dark-mode' : ''}`} onClick={handleOverlayClick}>
-            <div className={`modal-content ${isDarkMode ? 'dark-mode' : ''}`}>
+        <div className={`modal-overlay ${isDarkMode ? 'dark-mode' : ''} ${isClosing ? 'closing' : ''}`} onClick={handleOverlayClick}>
+            <div className={`modal-content ${isDarkMode ? 'dark-mode' : ''} ${isClosing ? 'closing' : ''}`}>
                 <div className="modal-header">
                     <button className="modal-theme-toggle" onClick={toggleDarkMode}>
                         {isDarkMode ? '🌙' : '☀️'}
@@ -129,18 +134,33 @@ function Modal({ isOpen, onClose, children, usecaseId, selectedUsecase }) {
                             <div className="modal-content">
                                 <h2 className="modal-title">{selectedUsecase.title}</h2>
                                 {selectedUsecase.content.map((item, index) => {
-                                    if (item.type === 'text') {
-                                        return <p key={index}>{item.value}</p>;
-                                    } else if (item.type === 'list') {
-                                        return (
-                                            <ul key={index} className="modal-list">
-                                                {item.value.map((listItem, listIndex) => (
-                                                    <li key={listIndex}>{listItem}</li>
-                                                ))}
-                                            </ul>
-                                        );
+                                    switch(item.type) {
+                                        case 'text':
+                                            return <p key={index} className="modal-description">{item.value}</p>;
+                                        case 'list':
+                                            return (
+                                                <ul key={index} className="modal-list">
+                                                    {item.value.map((listItem, listIndex) => (
+                                                        <li key={listIndex}>{listItem}</li>
+                                                    ))}
+                                                </ul>
+                                            );
+                                        case 'image':
+                                            return <img 
+                                                key={index} 
+                                                src={item.type === 'image' ? membleAppImage : item.url} 
+                                                alt={item.alt} 
+                                                className="modal-image" 
+                                                onError={(e) => {
+                                                    console.error('Image load error:', e);
+                                                    console.error('Failed to load image:', process.env.PUBLIC_URL + item.url);
+                                                    e.target.style.display = 'none';
+                                                    e.target.insertAdjacentHTML('afterend', `<p>이미지를 불러올 수 없습니다: ${item.alt}</p>`);
+                                                }} 
+                                            />;
+                                        default:
+                                            return null;
                                     }
-                                    return null;
                                 })}
                             </div>
                         </div>
