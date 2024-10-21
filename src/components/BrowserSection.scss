@@ -30,14 +30,12 @@
         font-size: 12px;
         font-weight: 600;
         color: var(--primary-normal);
-        background: var(--background-normal-alternative);
+        background: var(--background-normal-normal);
         padding: 8px 16px;
         border: 1px solid var(--line-normal-normal);
         border-radius: 20px;
         text-transform: uppercase;
-        box-shadow: 0px 4px 80px 0px var(--fill-alternative),
-            0px 4px 4px 0px var(--fill-normal),
-            0px 0px 4px 0px var(--fill-strong) inset;
+
         max-width: 160px;
         margin-bottom: 32px;
         display: inline-block;
@@ -45,9 +43,7 @@
         body.dark-mode & {
             background: var(--dark-background-normal-normal);
             border-color: var(--dark-line-normal-normal);
-            box-shadow: 0px 4px 80px 0px var(--dark-fill-alternative),
-                0px 4px 4px 0px var(--dark-fill-normal),
-                0px 0px 4px 0px var(--dark-fill-strong) inset;
+
         }
     }
 
