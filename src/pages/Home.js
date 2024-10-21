@@ -60,6 +60,7 @@ function Home() {
     const closeModal = () => {
         setModalOpen(false);
         setSelectedUsecase(null);
+        window.history.pushState(null, '', window.location.pathname);
     };
 
     return (

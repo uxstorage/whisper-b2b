@@ -96,12 +96,17 @@ body {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 100%;
   width: 100%;
   margin: 0 auto;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
 
 .btn {
   display: inline-flex;
@@ -124,11 +129,12 @@ body {
 // 반응형 미디어 쿼리
 @media (max-width: 768px) {
   body {
-    padding: 0 16px;
+    padding: 0;
   }
 
   .container {
     padding: 0 16px;
+    box-sizing: border-box;
   }
 }
 
@@ -158,3 +164,12 @@ body.dark-mode {
     color: var(--dark-label-normal);
   }
 }
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  overflow-y: scroll;
+}
+

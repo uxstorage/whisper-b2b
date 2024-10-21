@@ -111,6 +111,7 @@ function Modal({ isOpen, onClose, children, usecaseId, selectedUsecase }) {
         setTimeout(() => {
             setIsClosing(false);
             onClose();
+            window.history.pushState(null, '', window.location.pathname);
         }, 500);
     };
 
