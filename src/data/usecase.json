@@ -2,48 +2,44 @@
     {
         "id": 1,
         "title": "Web3 Payments",
-        "thumbnail": "/images/adoption1.png",
         "content": [
             {
                 "type": "text",
-                "value": "스테이블 코인 기반 온라인 상품 결제"
+                "value": "모바일 앱 Memble은 글로벌 멤버십 마켓 플레이스 입니다. 프라이빗 멤버십 상품을 NFT로 발급받아 실사용까지 할 수 있는 서비스입니다. Memble은 결제 수단에 USDT, USDC와 같은 스테이블 코인을 사용할 수 있는 ‘Web3 pay’를 추가했습니다. 가상화폐를 보유한 고객들에게 알맞은 선택권을 주고자 하는 목표와, 전세계 유저들이 결제 과정에서 화폐가 달라 겪는 어려움에 고민이 있었기 때문입니다. 이를 위해 Memble은 서비스 내에 직접 지갑 기능을 개발 해야 하는 우려와, 그로 인해 서비스의 기능이 복잡해질 걱정이 있었습니다. 이때 서비스 내에 Whisper의 지갑 기능을 도입하여 개발 과정에서 드는 리소스를 절약하면서도 안정적인 서비스 관리를 할 수 있게 되었습니다. 이와 같은 Whisper 지갑 도입을 통해 서비스 내 가상화폐 소유 유저들의 편의성을 높여보세요!"
             },
             {
-                "type": "image",
-                "value": "/images/adoption1-detail.png",
-                "caption": "Web3 Payments 예시"
+                "type": "list",
+                "value": []
             }
         ]
     },
     {
         "id": 2,
         "title": "NFT Vouchers",
-        "thumbnail": "/images/adoption2.png",
         "content": [
             {
                 "type": "text",
-                "value": "NFT 상품권 및 자동정산 컨트랙트"
+                "value": "Jeju Food&Wine Festival(이하 ‘JFWF’)은 매년 5월에 개최되는 제주도의 아름다운 자연을 배경으로 수년에 걸쳐 제주도를 상징하는 세계적으로 인정받는 요리 축제입니다. JFWF에서는 200곳에 다다르는 맛집에서 사용자들이 NFT 바우처를 통해 안전하게 결제하고, 가맹점은 빠르게 정산을 받을 수 있기를 바랐습니다. Whisper는 JFWF에서 사용할 수 있는 NFT 바우처를 제공하고, 스마트 컨트랙트를 통해서 가맹점이 복잡한 수수료 계산이나 수동 정산 절차 없이도 신속하게 자금을 확보할 수 있게 했습니다. 이 과정에서 발생하는 모든 데이터를 블록체인에 기록하여, 거래의 정확성과 투명성을 보장했습니다."
             },
             {
-                "type": "image",
-                "value": "/images/adoption2-detail.png",
-                "caption": "NFT Vouchers 예시"
+                "type": "list",
+                "value": [
+                ]
             }
         ]
     },
     {
         "id": 3,
         "title": "Scan to Payments",
-        "thumbnail": "/images/adoption3.png",
         "content": [
             {
                 "type": "text",
-                "value": "실물 자산 기반 포인트 토큰 충전 및 결제"
+                "value": "Ultra Music Fastival은 전세계에서 해마다 개최 되는 국제 일렉트로닉 뮤직 페스티벌입니다. 포인트 토큰을 충전하면 그대로 결제에서 활용이 가능합니다. 굿즈 결제, 토큰 송금 등 앱 내에서의 높은 활용성을 가지고 있습니다. 특히 서비스 안에서 사용자끼리 송금을 진행하기에도 간편합니다. 사용자들이 채팅을 통해 가지고 있는 포인트 토큰을 송금할 수 있습니다. 이를 통해 유저 Lock-in 효과와 낮은 이탈율을 기대할 수 있게 됩니다. 가맹점 수동 정산 또는 PG 결제 정산으로 인해 고민이 있으시다면, 실물 자산에 대한 포인트 토큰 기반 결제에 대해 관심이 있으시다면 Whisper에 지금 바로 문의해보세요! "
             },
             {
-                "type": "image",
-                "value": "/images/adoption3-detail.png",
-                "caption": "Scan to Payments 예시"
+                "type": "list",
+                "value": [
+                ]
             }
         ]
     }

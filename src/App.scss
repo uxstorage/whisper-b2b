@@ -145,3 +145,16 @@ body.dark-mode {
   color: var(--dark-label-normal);
   --primary-normal: #3766ff;
 }
+
+.feature-list {
+  li {
+    transition: color 0.2s ease;
+    will-change: color;
+  }
+}
+
+body.dark-mode {
+  .feature-list li {
+    color: var(--dark-label-normal);
+  }
+}

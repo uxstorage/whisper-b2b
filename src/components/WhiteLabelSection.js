@@ -1,8 +1,22 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import whitelabel from '../assets/whitelabel.png';
 import './WhiteLabelSection.scss';
 
+const FeatureList = React.memo(({ features }) => (
+    <ul className="feature-list">
+        {features.map((feature, index) => (
+            <li key={index}>{feature}</li>
+        ))}
+    </ul>
+));
+
 function WhiteLabelSection() {
+    const features = useMemo(() => [
+        "Whisper의 모든 기능 도입 가능",
+        "고객사 브랜딩 맞춤 디자인 제공",
+        "인프라 관리 및 기술 업데이트"
+    ], []);
+
     return (
         <section className="solution">
             <div className="container">
@@ -22,11 +36,7 @@ function WhiteLabelSection() {
                         <img src={whitelabel} alt="화이트라벨 솔루션" className="whitelabel-image" />
                     </div>
                     <div className="feature-list-container">
-                        <ul className="feature-list">
-                            <li>Whisper의 모든 기능 도입 가능</li>
-                            <li>고객사 브랜딩 맞춤 디자인 제공</li>
-                            <li>인프라 관리 및 기술 업데이트</li>
-                        </ul>
+                        <FeatureList features={features} />
                     </div>
                 </div>
             </div>
@@ -34,4 +44,4 @@ function WhiteLabelSection() {
     );
 }
 
-export default WhiteLabelSection;
+export default React.memo(WhiteLabelSection);

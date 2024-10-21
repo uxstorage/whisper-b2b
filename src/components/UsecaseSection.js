@@ -33,6 +33,7 @@ function UsecaseSection({ modalOpen, selectedUsecase, openModal, closeModal }) {
                         <div className="usecase-item" key={usecase.id}>
                             <img src={usecase.thumbnail} alt={usecase.title} />
                             <h3>{usecase.title}</h3>
+                            <p className="usecase-description">{usecase.content[0].value.split('.').slice(0, 2).join('.') + '.'}</p>
                             <button className="read-more" onClick={() => handleOpenModal(usecase)}>Read More</button>
                         </div>
                     ))}
@@ -42,19 +43,12 @@ function UsecaseSection({ modalOpen, selectedUsecase, openModal, closeModal }) {
                 <Modal isOpen={modalOpen} onClose={closeModal} usecaseId={selectedUsecase?.id}>
                     {selectedUsecase && (
                         <div className="modal-usecase">
-                            <img src={selectedUsecase.thumbnail} alt={selectedUsecase.title} className="modal-thumbnail" />
                             <div className="modal-content">
                                 <h2 className="modal-title">{selectedUsecase.title}</h2>
                                 {selectedUsecase.content.map((item, index) => {
                                     switch(item.type) {
                                         case 'text':
                                             return <p key={index} className="modal-description">{item.value}</p>;
-                                        case 'image':
-                                            return (
-                                                <figure key={index}>
-                                                    <img src={item.value} alt={item.caption} className="modal-image" />
-                                                </figure>
-                                            );
                                         case 'list':
                                             return (
                                                 <ul key={index} className="modal-list">
