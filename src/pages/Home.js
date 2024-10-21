@@ -16,7 +16,7 @@ import usecasesData from '../data/usecase.json';
 
 function Home() {
     const location = useLocation();
-    const [usecases, setUsecases] = useState(usecasesData);
+    const [usecases, setUsecases] = useState([]);
     const [selectedUsecase, setSelectedUsecase] = useState(null);
     const [modalOpen, setModalOpen] = useState(false);
 
@@ -33,6 +33,12 @@ function Home() {
         return () => {
             document.body.removeChild(script);
         }
+    }, []);
+
+    useEffect(() => {
+        import('../data/usecase.json').then(module => {
+            setUsecases(module.default);
+        });
     }, []);
 
     useEffect(() => {

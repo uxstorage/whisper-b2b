@@ -53,7 +53,6 @@
     align-items: center;
     justify-content: center;
     z-index: 1000;
-    overflow: hidden;
     animation: fadeIn 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 
     &.closing {
@@ -63,14 +62,12 @@
 
 .modal-content {
     background-color: var(--background-normal-normal);
-    border-radius: 20px;
     width: 100%;
     max-width: 800px;
-    height: 90vh;
+    max-height: 90vh;
     position: relative;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
     transition: background-color 0.2s, color 0.2s;
     animation: scaleUp 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 
@@ -103,33 +100,26 @@
 }
 
 .modal-body {
-    padding: 56px 40px 10px; // 상단 패딩 유지, 좌우 하단 패딩 감소
+    flex: 1;
     overflow-y: auto;
-    height: 100%;
-    padding-top: 80px; // 헤더의 높이만큼 추가 패딩
+    padding: 80px 40px 40px;
+    height: calc(100% - 60px);
+    scrollbar-width: thin;
+    scrollbar-color: var(--fill-normal) transparent;
 
     &::-webkit-scrollbar {
         width: 8px;
     }
 
     &::-webkit-scrollbar-track {
-        background: var(--background-normal-alternative);
+        background: transparent;
     }
 
     &::-webkit-scrollbar-thumb {
-        background-color: var(--line-normal-normal);
+        background-color: var(--fill-normal);
         border-radius: 4px;
     }
 
-    body.dark-mode & {
-        &::-webkit-scrollbar-track {
-            background: var(--dark-background-normal-alternative);
-        }
-
-        &::-webkit-scrollbar-thumb {
-            background-color: var(--dark-line-normal-normal);
-        }
-    }
 }
 
 .modal-close {
@@ -273,4 +263,12 @@
     body.dark.mode &:hover {
         background-color: var(--dark-background-normal-alternative);
     }
+}
+
+.modal-video {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    
 }

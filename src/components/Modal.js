@@ -6,7 +6,6 @@ import { ReactComponent as ShareIcon } from '../assets/share-icon.svg';
 import { ReactComponent as LinkIcon } from '../assets/link-icon.svg';
 import Toast from './Toast';
 import { useLocation, useNavigate } from 'react-router-dom';
-import membleAppImage from '../assets/memble-app.jpg';
 
 function Modal({ isOpen, onClose, children, usecaseId, selectedUsecase }) {
     const { isDarkMode, toggleDarkMode } = useContext(ThemeContext);
@@ -19,12 +18,18 @@ function Modal({ isOpen, onClose, children, usecaseId, selectedUsecase }) {
     useEffect(() => {
         if (isOpen) {
             setIsClosing(false);
-            document.body.style.overflow = 'hidden';
+            document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
+            document.body.style.paddingRight = '';
         } else {
-            document.body.style.overflow = 'unset';
+            document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
+            document.body.style.paddingRight = '';
         }
         return () => {
-            document.body.style.overflow = 'unset';
+            document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
+            document.body.style.paddingRight = '';
         };
     }, [isOpen]);
 
@@ -116,7 +121,7 @@ function Modal({ isOpen, onClose, children, usecaseId, selectedUsecase }) {
     };
 
     return (
-        <div className={`modal-overlay ${isDarkMode ? 'dark-mode' : ''} ${isClosing ? 'closing' : ''}`} onClick={handleOverlayClick}>
+        <div className={`modal-overlay ${isDarkMode ? 'dark-mode' : ''} ${isClosing ? 'closing' : ''}`} onClick={handleOverlayClick} style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, zIndex: 9999 }}>
             <div className={`modal-content ${isDarkMode ? 'dark-mode' : ''} ${isClosing ? 'closing' : ''}`}>
                 <div className="modal-header">
                     <button className="modal-theme-toggle" onClick={toggleDarkMode}>
@@ -149,15 +154,27 @@ function Modal({ isOpen, onClose, children, usecaseId, selectedUsecase }) {
                                         case 'image':
                                             return <img 
                                                 key={index} 
-                                                src={item.type === 'image' ? membleAppImage : item.url} 
+                                                src={process.env.PUBLIC_URL + item.url}
                                                 alt={item.alt} 
                                                 className="modal-image" 
+                                                onContextMenu={(e) => e.preventDefault()}
+                                                style={{ pointerEvents: 'none' }}
                                                 onError={(e) => {
                                                     console.error('Image load error:', e);
                                                     console.error('Failed to load image:', process.env.PUBLIC_URL + item.url);
                                                     e.target.style.display = 'none';
                                                     e.target.insertAdjacentHTML('afterend', `<p>이미지를 불러올 수 없습니다: ${item.alt}</p>`);
                                                 }} 
+                                            />;
+                                        case 'video':
+                                            return <video 
+                                                key={index}
+                                                src={process.env.PUBLIC_URL + item.url}
+                                                alt={item.alt}
+                                                className="modal-video"
+                                                controls
+                                                onContextMenu={(e) => e.preventDefault()}
+                                                controlsList="nodownload"
                                             />;
                                         default:
                                             return null;
