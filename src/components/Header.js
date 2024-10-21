@@ -16,6 +16,13 @@ function Header({ isMenuOpen, toggleMenu }) {
         }
     }, []);
 
+    useEffect(() => {
+        const metaThemeColor = document.querySelector("meta[name=theme-color]");
+        if (metaThemeColor) {
+            metaThemeColor.setAttribute("content", isDarkMode ? "#17171A" : "#ffffff");
+        }
+    }, [isDarkMode]);
+
     const toggleDarkMode = () => {
         setIsDarkMode(!isDarkMode);
         document.body.classList.toggle('dark-mode');
