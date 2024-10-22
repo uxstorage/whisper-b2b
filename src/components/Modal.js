@@ -44,11 +44,11 @@ function Modal({ isOpen, onClose, children, usecaseId, selectedUsecase }) {
 
     useEffect(() => {
         if (isOpen && usecaseId) {
-            navigate(`#modal-usecase-${usecaseId}`, { replace: true });
+            window.history.pushState(null, '', `/#modal-usecase-${usecaseId}`);
         } else if (!isOpen && !isClosing) {
-            navigate('', { replace: true });
+            window.history.pushState(null, '', '/');
         }
-    }, [isOpen, navigate, usecaseId, isClosing]);
+    }, [isOpen, usecaseId, isClosing]);
 
     useEffect(() => {
         console.log('Selected Usecase:', selectedUsecase);
@@ -63,11 +63,16 @@ function Modal({ isOpen, onClose, children, usecaseId, selectedUsecase }) {
     };
 
     const handleShare = () => {
+        const baseUrl = window.location.href.split('#')[0];
+        const currentUrl = usecaseId
+            ? `${baseUrl}#modal-usecase-${usecaseId}`
+            : window.location.href;
+
         if (navigator.share && isMobile) {
             navigator.share({
                 title: 'Whisper',
                 text: '안전한 Web3 솔루션, 위스퍼를 확인해보세요!',
-                url: window.location.href,
+                url: currentUrl,
             }).then(() => {
                 console.log('공유 성공');
             }).catch((error) => {
@@ -79,9 +84,9 @@ function Modal({ isOpen, onClose, children, usecaseId, selectedUsecase }) {
     };
 
     const handleCopyLink = () => {
-        const baseUrl = window.location.href.split('#')[0];
+        const baseUrl = window.location.origin + window.location.pathname;
         const currentUrl = usecaseId
-            ? `${baseUrl}#/#modal-usecase-${usecaseId}`
+            ? `${baseUrl}#modal-usecase-${usecaseId}`
             : window.location.href;
 
         if (navigator.clipboard && navigator.clipboard.writeText) {

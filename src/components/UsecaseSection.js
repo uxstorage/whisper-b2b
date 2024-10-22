@@ -17,7 +17,7 @@ function UsecaseSection({ modalOpen, selectedUsecase, openModal, closeModal }) {
     const handleOpenModal = (usecase) => {
         console.log('Opening modal with usecase:', usecase);
         openModal(usecase);
-        window.history.pushState(null, '', `#modal-usecase-${usecase.id}`);
+        window.history.pushState(null, '', `/#modal-usecase-${usecase.id}`);
     };
 
     return (

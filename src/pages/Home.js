@@ -69,6 +69,13 @@ function Home() {
         window.history.pushState(null, '', window.location.pathname);
     };
 
+    const handleOpenModal = (usecase) => {
+        console.log('Opening modal with usecase:', usecase);
+        setSelectedUsecase(usecase);
+        setModalOpen(true);
+        window.history.pushState(null, '', `/#modal-usecase-${usecase.id}`);
+    };
+
     return (
         <main>
             <HeroSection />
