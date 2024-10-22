@@ -62,7 +62,8 @@ function Modal({ isOpen, onClose, children, usecaseId, selectedUsecase }) {
         }
     };
 
-    const handleShare = () => {
+    const handleShare = (e) => {
+        e.preventDefault(); // 기본 이벤트 동작 방지
         const baseUrl = window.location.href.split('#')[0];
         const currentUrl = usecaseId
             ? `${baseUrl}#modal-usecase-${usecaseId}`
@@ -132,7 +133,7 @@ function Modal({ isOpen, onClose, children, usecaseId, selectedUsecase }) {
                     <button className="modal-theme-toggle" onClick={toggleDarkMode}>
                         {isDarkMode ? '🌙' : '☀️'}
                     </button>
-                    <button className="modal-share" onClick={handleShare}>
+                    <button onClick={handleShare} className="modal-share">
                         {isMobile ? <ShareIcon /> : <LinkIcon />}
                     </button>
                     <button className="modal-close" onClick={handleClose}>
