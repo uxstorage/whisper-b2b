@@ -38,7 +38,7 @@ function Header({ isMenuOpen, toggleMenu }) {
     return (
         <header>
             <div className="container">
-                <Link to="/" className="logo" onClick={handleNavClick}>
+                <Link to="/" className="logo" onClick={(e) => { e.preventDefault(); window.location.href = '/'; }} >
                     {isDarkMode ? <WhisperLogoDark className="logo-svg" /> : <WhisperLogo className="logo-svg" />}
                 </Link>
                 <nav className={isMenuOpen ? 'active' : ''}>
