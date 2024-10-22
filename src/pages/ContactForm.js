@@ -4,6 +4,22 @@ import './ContactForm.scss';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import emailjs from 'emailjs-com';
+import { PhoneNumberUtil, PhoneNumberFormat, PhoneNumberType } from 'google-libphonenumber';
+
+const phoneUtil = PhoneNumberUtil.getInstance();
+
+const getCountryFromLanguage = () => {
+  const language = navigator.language || navigator.userLanguage;
+  const languageCode = language.split('-')[0];
+  const countryMap = {
+    ko: 'kr',
+    en: 'us',
+    ja: 'jp',
+    zh: 'cn',
+    // 필요에 따라 더 많은 언어-국가 매핑을 추가할 수 있습니다.
+  };
+  return countryMap[languageCode] || 'kr'; // 기본값으로 'kr' 사용
+};
 
 function ContactForm() {
   const [formData, setFormData] = useState({
@@ -11,7 +27,7 @@ function ContactForm() {
     company: '',
     email: '',
     phone: '',
-    country: '',
+    country: getCountryFromLanguage(),
     message: '',
     service: '서비스 문의'
   });
@@ -19,6 +35,8 @@ function ContactForm() {
   const [showErrorBorder, setShowErrorBorder] = useState({});
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
+  const [phonePlaceholder, setPhonePlaceholder] = useState('전화번호를 입력하세요');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const inputRefs = {
     name: useRef(),
@@ -30,10 +48,15 @@ function ContactForm() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prevData => ({
-      ...prevData,
-      [name]: value
-    }));
+    console.log(`handleChange called: ${name} = ${value}`);
+    setFormData(prevData => {
+      const newData = {
+        ...prevData,
+        [name]: value
+      };
+      console.log('New formData:', newData);
+      return newData;
+    });
     setErrorFields(prev => ({
       ...prev,
       [name]: false
@@ -41,15 +64,33 @@ function ContactForm() {
   };
 
   const handlePhoneChange = (value, country) => {
+    console.log(`handlePhoneChange called: value = ${value}, country = ${country.countryCode}`);
     setFormData(prevData => ({
       ...prevData,
       phone: value,
-      country: country.countryCode
+      country: country.countryCode,
     }));
     setErrorFields(prev => ({
       ...prev,
-      phone: false
+      phone: false,
     }));
+
+    if (value === '') {
+      setPhonePlaceholder('전화번호를 입력하세요');
+      return;
+    }
+
+    try {
+      const exampleNumber = phoneUtil.getExampleNumberForType(
+        country.countryCode.toUpperCase(),
+        PhoneNumberType.MOBILE
+      );
+      const formattedPlaceholder = phoneUtil.format(exampleNumber, PhoneNumberFormat.NATIONAL);
+      setPhonePlaceholder(formattedPlaceholder);
+    } catch (error) {
+      console.error('예시 번호를 가져오는 중 오류 발생:', error);
+      setPhonePlaceholder('전화번호를 입력하세요');
+    }
   };
 
   const validateForm = () => {
@@ -84,7 +125,7 @@ function ContactForm() {
     setErrorFields(newErrorFields);
     setShowErrorBorder(newErrorFields);
 
-    // 3초 후에 에러 테두리를 제거합니다
+    // 3초 후에 에러 테리를 제거합니다
     setTimeout(() => {
       setShowErrorBorder({});
     }, 3000);
@@ -95,6 +136,7 @@ function ContactForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
+      setIsSubmitting(true);
       try {
         const templateParams = {
           name: formData.name,
@@ -106,10 +148,10 @@ function ContactForm() {
         };
 
         await emailjs.send(
-          'service_u0t35gg',  // 이메일 서비스 ID
-          'template_t9sdux9', // 이메일 템플릿 ID
-          templateParams,     // 템플릿 매개변수
-          '8ExOe97hH6gGU7jz7' // Public Key
+          'service_u0t35gg', 
+          'template_t9sdux9',
+          templateParams,     
+          '8ExOe97hH6gGU7jz7' 
         );
 
         setToastMessage('문의가 성공적으로 제출되었습니다.');
@@ -126,10 +168,11 @@ function ContactForm() {
         console.error('문의 제출 중 오류 발생:', error);
         setToastMessage('문의 제출 중 오류가 발생했습니다. 다시 시도해 주세요.');
         setShowToast(true);
+      } finally {
+        setIsSubmitting(false);
       }
-    } else {
-      setShowToast(true);
     }
+    setShowToast(true);
     setTimeout(() => setShowToast(false), 3000);
   };
 
@@ -140,6 +183,21 @@ function ContactForm() {
     window.scrollTo(0, 0);
   }, []);
 
+  useEffect(() => {
+    try {
+      const exampleNumber = phoneUtil.getExampleNumberForType('KR', PhoneNumberType.MOBILE);
+      const formattedPlaceholder = phoneUtil.format(exampleNumber, PhoneNumberFormat.NATIONAL);
+      setPhonePlaceholder(formattedPlaceholder);
+    } catch (error) {
+      console.error('초기 예시 번호를 가져오는 중 오류 발생:', error);
+      setPhonePlaceholder('010-1234-5678'); // 한국 번호 형식의 기본값
+    }
+  }, []);
+
+  useEffect(() => {
+    console.log('formData updated:', formData);
+  }, [formData]);
+
   return (
     <div className="contact-page">
       {showToast && <Toast message={toastMessage} />}
@@ -148,7 +206,7 @@ function ContactForm() {
           <h1>어떤 질문도 <br />위스퍼가 답변해드릴게요</h1>
           <p className="subtitle">
           아래와 같은 궁금한 점을 모두 질문하세요.<br />
-          영업팀이 메일 또는 전화로 제품에 대해 자세히 알려드립니다.
+          영업팀이 메일 또는 전화로 제품에 대해 자세히 알드립니다.
           </p>
         </div>
         <form onSubmit={handleSubmit} className="contact-form" noValidate>
@@ -180,15 +238,34 @@ function ContactForm() {
             className={showErrorBorder.email ? 'error' : ''}
           />
           <PhoneInput
-            country={'kr'}
+            key={phonePlaceholder}
+            country={formData.country}
             value={formData.phone}
-            onChange={handlePhoneChange}
+            onChange={(value, country, e, formattedValue) => {
+              console.log('PhoneInput onChange:', value, country, formattedValue);
+              handlePhoneChange(value, country);
+            }}
+            onKeyDown={(e) => {
+              if (e.key >= '0' && e.key <= '9') {
+                const newValue = formData.phone + e.key;
+                handlePhoneChange(newValue, { countryCode: formData.country });
+              } else if (e.key === 'Backspace') {
+                const newValue = formData.phone.slice(0, -1);
+                handlePhoneChange(newValue, { countryCode: formData.country });
+              }
+            }}
+            placeholder={phonePlaceholder}
             inputProps={{
               name: 'phone',
               required: true,
-              ref: inputRefs.phone
+              ref: inputRefs.phone,
             }}
-            containerClass={showErrorBorder.phone ? 'error' : ''}
+            containerClass={`phone-input-container ${showErrorBorder.phone ? 'error' : ''}`}
+            inputClass="phone-input"
+            enableSearch={true}
+            disableSearchIcon={true}
+            disableCountryCode={true}
+            countryCodeEditable={false}
           />
           <select
             name="service"
@@ -210,7 +287,9 @@ function ContactForm() {
           <div className={`char-count ${isExceeded ? 'exceed' : ''}`}>
             {charCount}/500
           </div>
-          <button type="submit">문의 제출</button>
+          <button type="submit" disabled={isSubmitting}>
+            {isSubmitting ? '제출 중...' : '문의 제출하기'}
+          </button>
         </form>
       </div>
     </div>

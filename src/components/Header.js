@@ -46,9 +46,9 @@ function Header({ isMenuOpen, toggleMenu }) {
                         <li><a href="#solutions" onClick={handleNavClick}>솔루션 소개</a></li>
                         <li><a href="#plans" onClick={handleNavClick}>플랜 소개</a></li>
                         <li>
-                            <a href="#contact" className="btn" onClick={handleNavClick}>
+                            <Link to="/contact" className="btn" onClick={handleNavClick}>
                                 <span>문의하기</span>
-                            </a>
+                            </Link>
                         </li>
                         <li className="mobile-theme-toggle">
                             <button className="theme-toggle" onClick={toggleDarkMode}>

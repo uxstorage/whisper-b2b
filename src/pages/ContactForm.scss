@@ -90,6 +90,11 @@
       &:hover {
         background-color: var(--blue-60);
       }
+
+      &:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+      }
     }
 
     .react-tel-input {
@@ -107,6 +112,11 @@
         &:focus {
           border-color: var(--primary-normal) !important;
           box-shadow: 0 0 0 2px rgba(49, 130, 246, 0.1) !important;
+        }
+
+        &::placeholder {
+          color: var(--label-alternative) !important;
+          opacity: 1 !important;
         }
       }
 
@@ -150,7 +160,7 @@
 
     select {
       appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg width='14' height='8' viewBox='0 0 14 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L7 7L13 1' stroke='%23333333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg width='14' height='8' viewBox='0 0 14 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L7 7L13 1' stroke='%33333333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
       background-position: right 16px center;
       background-size: 14px 8px;
@@ -264,4 +274,25 @@ body {
   color: var(--label-normal);
   overflow-x: hidden;
   margin: 0;
+}
+
+.phone-input::placeholder {
+  color: var(--label-alternative) !important;
+  opacity: 1 !important;
+}
+
+.react-tel-input .form-control::placeholder {
+  color: var(--label-alternative) !important;
+  opacity: 1 !important;
+}
+
+.phone-input-container {
+  .react-tel-input {
+    .form-control {
+      &::placeholder {
+        color: var(--label-alternative) !important;
+        opacity: 1 !important;
+      }
+    }
+  }
 }
