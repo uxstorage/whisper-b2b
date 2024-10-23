@@ -1,6 +1,6 @@
-
 .wallet {
     height: auto;
+    text-align: center;
 
     .wallet-features {
         flex-direction: row;
@@ -19,29 +19,6 @@
 }
 
 
-
-@media (max-width: 480px) {
-    .hero h1 {
-        font-size: 28px;
-    }
-
-    .web3-features,
-    .dex-solution,
-    .dapp-browsing,
-    .block-explorer,
-    .browser,
-    .solution {
-        .section-title {
-            font-size: 12px;
-            line-height: 32px;
-        }
-
-        .section-description {
-            font-size: 14px;
-        }
-    }
-}
-
 .wallet {
     background: url('../assets/wallet-background.png') no-repeat center center;
     background-size: cover;
@@ -52,13 +29,22 @@
     box-sizing: border-box;
     border-radius: 50px;
     border: 1px solid #F0F0F2;
+    border-color: var(--line-normal-normal);
+
+    body.dark-mode & {
+        border-color: var(--dark-line-normal-normal);
+    }
 
     .container {
         max-width: 1040px;
         margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: visible;
     }
 
-    .section-title {
+    .section-tag {
         font-size: 12px;
         font-weight: 600;
         color: var(--primary-normal);
@@ -78,6 +64,19 @@
             border-color: var(--dark-line-normal-normal);
             color: var(--primary-normal);
             box-shadow: 0 8px 8px var(--dark-fill-alternative);
+        }
+    }
+
+    .section-title {
+        font-size: 32px;
+        font-weight: bold;
+        margin-bottom: 40px;
+        line-height: 1.2;
+        color: var(--label-normal);
+        text-align: center;
+
+        body.dark-mode & {
+            color: var(--dark-label-normal);
         }
     }
 
@@ -122,9 +121,11 @@
             padding: 16px;
             transition: background-color 0.3s;
             box-shadow: 0px 10px 100px 0px rgba(0, 0, 0, 0.05);
+            border-color: var(--line-normal-normal);
 
             body.dark-mode & {
                 background-color: rgba(var(--dark-background-normal-normal),0.4);
+                border-color: var(--dark-line-normal-normal);
             }
         }
 

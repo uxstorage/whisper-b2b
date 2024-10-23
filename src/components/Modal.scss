@@ -252,7 +252,7 @@
     transition: background-color 0.3s;
     padding: 0;
 
-    body.dark.mode & {
+    body.dark-mode & {
         background: var(--dark-background-normal-normal);
     }
 
@@ -260,7 +260,7 @@
         background-color: var(--background-normal-alternative);
     }
 
-    body.dark.mode &:hover {
+    body.dark-mode &:hover {
         background-color: var(--dark-background-normal-alternative);
     }
 }

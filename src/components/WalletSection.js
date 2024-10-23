@@ -8,11 +8,11 @@ function WalletSection() {
     return (
         <section className="wallet">
             <div className="container">
-                <h2 className="section-title">Wallet</h2>
-                <h3 className="section-subtitle">
+                <button className="section-tag">Wallet</button>
+                <h2 className="section-title">
                     안전하고 편리한<br />
                     <span>디지털 자산 관리</span>
-                </h3>
+                </h2>
                 <p className="section-description">
                     블록체인 기술로 자산을 안전하고 효율적으로 관리하세요
                 </p>

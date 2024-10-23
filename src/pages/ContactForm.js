@@ -16,9 +16,8 @@ const getCountryFromLanguage = () => {
     en: 'us',
     ja: 'jp',
     zh: 'cn',
-    // 필요에 따라 더 많은 언어-국가 매핑을 추가할 수 있습니다.
   };
-  return countryMap[languageCode] || 'kr'; // 기본값으로 'kr' 사용
+  return countryMap[languageCode] || 'kr';
 };
 
 function ContactForm() {
