@@ -97,13 +97,30 @@ body {
 }
 
 .container {
-  max-width: 100%;
+  max-width: 1200px;
   width: 100%;
   margin: 0 auto;
   box-sizing: border-box;
   overflow-x: hidden;
 }
 
+// 모든 섹션에 공통으로 적용될 스타일
+.dex-solution,
+.block-explorer,
+.browser,
+.solution,
+.wallet,
+.web3-features,
+.clients,
+.usecase,
+.dapp-browsing {
+  max-width: 1200px;
+  width: 100%;
+  margin: 120px auto 0;
+  padding: 80px 40px;
+  box-sizing: border-box;
+  border-radius: 50px;
+}
 
 .btn {
   display: inline-flex;
@@ -128,12 +145,33 @@ body {
   body {
     padding: 0;
     overflow-x: hidden;
-    padding-right: 0px;
   }
 
   .container {
-    padding: 0 16px;
-    box-sizing: border-box;
+    width: 90%;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .dex-solution,
+  .block-explorer,
+  .browser,
+  .solution,
+  .wallet,
+  .web3-features,
+  .clients,
+  .usecase,
+  .dapp-browsing {
+    width: 90% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 40px 20px 0 !important;
+    border-radius: 25px !important;
+
+    .container {
+      width: 100%;
+      padding: 0;
+    }
   }
 }
 
@@ -167,3 +205,6 @@ body.dark-mode {
 html {
   overflow-y: scroll;
 }
+
+
+

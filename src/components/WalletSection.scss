@@ -1,6 +1,5 @@
 .wallet {
     height: auto;
-    text-align: center;
 
     .wallet-features {
         flex-direction: row;
@@ -20,16 +19,10 @@
 
 
 .wallet {
-    background: url('../assets/wallet-background.png') no-repeat center center;
-    background-size: cover;
-    max-width: 1200px;
-    height: auto;
-    margin: 120px auto 0;
-    padding: 80px 40px;
     box-sizing: border-box;
     border-radius: 50px;
     border: 1px solid #F0F0F2;
-    border-color: var(--line-normal-normal);
+    border-color: var(--line-normal-alternative);
 
     body.dark-mode & {
         border-color: var(--dark-line-normal-normal);

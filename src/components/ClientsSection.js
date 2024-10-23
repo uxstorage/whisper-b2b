@@ -9,8 +9,8 @@ function ClientsSection() {
     return (
         <section className="clients">
             <div className="container">
-                <h2 className="section-title">Clients</h2>
-                <p className="section-subtitle">
+                <button className="section-tag">Clients</button>
+                <p className="section-title">
                     다양한 기업들이<br />
                     <span>위스퍼 솔루션과</span> 함께하고 있어요
                 </p>

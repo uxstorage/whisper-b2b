@@ -8,10 +8,10 @@ function MessengerSection() {
     return (
         <section className="web3-features">
             <div className="container">
-                <h2 className="section-title">Messenger</h2>
-                <p className="section-subtitle">
+                <button className="section-tag">Messenger</button>
+                <h2 className="section-title">
                     안전한 Web3<br /> <span>커뮤니케이션</span>
-                </p>
+                </h2>
                 <p className="section-description">
                     암호화 기술로 보호되는 메시지를 통해 비즈니스 솔루션을 제공할 수 있어요
                 </p>

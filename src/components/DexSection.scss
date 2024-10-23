@@ -85,9 +85,15 @@
 // Media Queries
 @media (max-width: 768px) {
     .dex-solution {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 40px 20px;
+        border-radius: 25px;
+
         .container {
-            flex-direction: column-reverse;
-            gap: 40px;
+            width: 100%;
+            padding: 0;
         }
 
         .content,

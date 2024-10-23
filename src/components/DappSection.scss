@@ -85,6 +85,7 @@
         .container {
             flex-direction: column-reverse;
             gap: 40px;
+            overflow: visible;
         }
 
         .content,

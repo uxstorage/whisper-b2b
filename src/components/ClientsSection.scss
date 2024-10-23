@@ -7,7 +7,7 @@
         color: var(--dark-label-normal);
     }
 
-    .section-title {
+    .section-tag {
         font-size: 12px;
         font-weight: 600;
         color: var(--primary-normal);
@@ -30,7 +30,7 @@
         }
     }
 
-    .section-subtitle {
+    .section-title {
         font-size: 32px;
         font-weight: bold;
         margin-bottom: 40px;
@@ -79,5 +79,9 @@
         .client-logos img {
             max-width: 100px;
         }
+    }
+    .clients .section-subtitle,
+    .usecase .section-subtitle {
+        font-size: 24px;
     }
 }
