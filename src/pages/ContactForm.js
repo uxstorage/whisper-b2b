@@ -147,10 +147,10 @@ function ContactForm() {
         };
 
         await emailjs.send(
-          'service_u0t35gg', 
-          'template_t9sdux9',
-          templateParams,     
-          '8ExOe97hH6gGU7jz7' 
+          process.env.REACT_APP_EMAILJS_SERVICE_ID,
+          process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+          templateParams,
+          process.env.REACT_APP_EMAILJS_PUBLIC_KEY
         );
 
         setToastMessage('문의가 성공적으로 제출되었습니다.');

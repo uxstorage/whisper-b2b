@@ -23,9 +23,9 @@ function Footer() {
                                 <img src={footerImage} alt="WHISPER 로고" />
                             </div>
                             <div className="social-icons">
-                                <a href="#" className="social-icon"><img src={twitterIcon} alt="Twitter" /></a>
-                                <a href="#" className="social-icon"><img src={facebookIcon} alt="Facebook" /></a>
-                                <a href="#" className="social-icon"><img src={instagramIcon} alt="Instagram" /></a>
+                                <a href="https://x.com/Whisper_MSG?prefetchTimestamp=1729668528867" className="social-icon"><img src={twitterIcon} alt="Twitter" /></a>
+                                {/* <a href="#" className="social-icon"><img src={facebookIcon} alt="Facebook" /></a>
+                                <a href="#" className="social-icon"><img src={instagramIcon} alt="Instagram" /></a> */}
                             </div>
                             <p className="footer-copyright">©2024 Whisper. All rights reserved.</p>
                         </div>

@@ -13,7 +13,7 @@
         flex: 1;
 
         .section-title {
-            color: #0E0E0E;
+            color: var(--label-strong);
             font-family: Pretendard;
             font-size: 40px;
             font-style: normal;
@@ -33,7 +33,7 @@
         }
 
         .section-description {
-            color: #999;
+            color: var(--label-alternative);
             font-family: Pretendard;
             font-size: 18px;
             font-style: normal;
