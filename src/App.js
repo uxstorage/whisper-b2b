@@ -18,9 +18,11 @@ function App() {
     document.body.style.overflow = isMenuOpen ? 'hidden' : 'visible';
   }, [isMenuOpen]);
 
+  const basename = process.env.NODE_ENV === 'production' ? '/whisper-b2b' : '';
+
   return (
     <ThemeProvider>
-      <Router>
+      <Router basename={basename}>
         <div className="App">
           <Header isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
           <Routes>

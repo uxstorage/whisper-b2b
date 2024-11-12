@@ -14,6 +14,7 @@ function Modal({ isOpen, onClose, children, usecaseId, selectedUsecase }) {
     const [isClosing, setIsClosing] = useState(false);
     const location = useLocation();
     const navigate = useNavigate();
+    const basePath = process.env.NODE_ENV === 'production' ? '/whisper-b2b' : '';
 
     useEffect(() => {
         if (isOpen) {
@@ -44,9 +45,9 @@ function Modal({ isOpen, onClose, children, usecaseId, selectedUsecase }) {
 
     useEffect(() => {
         if (isOpen && usecaseId) {
-            window.history.pushState(null, '', `/#modal-usecase-${usecaseId}`);
+            window.history.pushState(null, '', `${basePath}/home/modal-usecase-${usecaseId}`);
         } else if (!isOpen && !isClosing) {
-            window.history.pushState(null, '', '/');
+            window.history.pushState(null, '', `${basePath}/home`);
         }
     }, [isOpen, usecaseId, isClosing]);
 
@@ -85,9 +86,9 @@ function Modal({ isOpen, onClose, children, usecaseId, selectedUsecase }) {
     };
 
     const handleCopyLink = () => {
-        const baseUrl = window.location.origin + window.location.pathname;
+        const baseUrl = window.location.origin + '/whisper-b2b/home';
         const currentUrl = usecaseId
-            ? `${baseUrl}#modal-usecase-${usecaseId}`
+            ? `${baseUrl}/modal-usecase-${usecaseId}`
             : window.location.href;
 
         if (navigator.clipboard && navigator.clipboard.writeText) {

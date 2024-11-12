@@ -64,16 +64,17 @@ function Home() {
     };
 
     const closeModal = () => {
+        const basePath = process.env.NODE_ENV === 'production' ? '/whisper-b2b' : '';
         setModalOpen(false);
         setSelectedUsecase(null);
-        window.history.pushState(null, '', '/home');
+        window.history.pushState(null, '', `${basePath}/home`);
     };
 
     const handleOpenModal = (usecase) => {
         console.log('Opening modal with usecase:', usecase);
         setSelectedUsecase(usecase);
         setModalOpen(true);
-        window.history.pushState(null, '', `/#modal-usecase-${usecase.id}`);
+        window.history.pushState(null, '', `/whisper-b2b/home/modal-usecase-${usecase.id}`);
     };
 
     return (
