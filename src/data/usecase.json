@@ -9,7 +9,7 @@
             },
             {
                 "type": "image",
-                "url": "/images/memble-app.png",
+                "url": "/images/memble-app.jpg",
                 "alt": "Memble 앱 스크린샷"
             }
         ]
@@ -24,12 +24,12 @@
             },
             {
                 "type": "image",
-                "url": "/images/jfwf1.png",
+                "url": "/images/jfwf1.jpg",
                 "alt": "jfwf 앱 스크린샷"
             },
             {
                 "type": "image",
-                "url": "/images/jfwf2.png",
+                "url": "/images/jfwf2.jpg",
                 "alt": "jfwf 앱 스크린샷"
             }
         ]
@@ -44,13 +44,14 @@
             },
             {
                 "type": "image",
-                "url": "/images/umf1.png",
+                "url": "/images/umf1.jpg",
                 "alt": "umf 앱 스크린샷"
             },
             {
                 "type": "video",
-                "url": "/videos/whisper_jpoint_3.mp4",
-                "alt": "jfwf영상"
+                "url": "https://www.youtube.com/watch?v=2JZdz-iI-7E",
+                "alt": "jfwf영상",
+                "isYoutube": true
             },
             {
                 "type": "text",
@@ -58,7 +59,7 @@
             },
             {
                 "type": "image",
-                "url": "/images/umf2.png",
+                "url": "/images/umf2.jpg",
                 "alt": "umf 앱 스크린샷"
             }
         ]

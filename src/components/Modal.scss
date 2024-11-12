@@ -79,6 +79,10 @@
         background-color: var(--dark-background-normal-normal);
         color: var(--dark-label-normal);
     }
+
+    .modal-usecase {
+        margin-bottom: 40px;
+    }
 }
 
 .modal-header {
@@ -135,7 +139,7 @@
     height: auto;
     object-fit: cover;
     border-radius: 16px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 .modal-title {
@@ -271,4 +275,8 @@
     height: auto;
     margin-bottom: 20px;
     
+}
+
+.modal-video-container {
+    margin-bottom: 40px;
 }

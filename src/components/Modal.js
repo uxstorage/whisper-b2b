@@ -18,9 +18,9 @@ function Modal({ isOpen, onClose, children, usecaseId, selectedUsecase }) {
     useEffect(() => {
         if (isOpen) {
             setIsClosing(false);
-            document.body.style.overflow = '';
-            document.documentElement.style.overflow = '';
-            document.body.style.paddingRight = '';
+            document.body.style.overflow = 'hidden';
+            document.documentElement.style.overflow = 'hidden';
+            document.body.style.paddingRight = '15px';
         } else {
             document.body.style.overflow = '';
             document.documentElement.style.overflow = '';
@@ -158,30 +158,48 @@ function Modal({ isOpen, onClose, children, usecaseId, selectedUsecase }) {
                                                 </ul>
                                             );
                                         case 'image':
-                                            return <img 
-                                                key={index} 
-                                                src={process.env.PUBLIC_URL + item.url}
-                                                alt={item.alt} 
-                                                className="modal-image" 
-                                                onContextMenu={(e) => e.preventDefault()}
-                                                style={{ pointerEvents: 'none' }}
-                                                onError={(e) => {
-                                                    console.error('Image load error:', e);
-                                                    console.error('Failed to load image:', process.env.PUBLIC_URL + item.url);
-                                                    e.target.style.display = 'none';
-                                                    e.target.insertAdjacentHTML('afterend', `<p>이미지를 불러올 수 없습니다: ${item.alt}</p>`);
-                                                }} 
-                                            />;
+                                            const isLastItem = index === selectedUsecase.content.length - 1;
+                                            return (
+                                                <div 
+                                                    key={index} 
+                                                    style={{ 
+                                                        marginBottom: isLastItem ? '40px' : '20px',
+                                                        width: '100%'
+                                                    }}
+                                                >
+                                                    <img 
+                                                        src={process.env.PUBLIC_URL + item.url}
+                                                        alt={item.alt} 
+                                                        className="modal-image" 
+                                                        onContextMenu={(e) => e.preventDefault()}
+                                                        style={{ pointerEvents: 'none' }}
+                                                        onError={(e) => {
+                                                            console.error('Image load error:', e);
+                                                            console.error('Failed to load image:', process.env.PUBLIC_URL + item.url);
+                                                            e.target.style.display = 'none';
+                                                            e.target.insertAdjacentHTML('afterend', `<p>이미지를 불러올 수 없습니다: ${item.alt}</p>`);
+                                                        }} 
+                                                    />
+                                                </div>
+                                            );
                                         case 'video':
-                                            return <video 
-                                                key={index}
-                                                src={process.env.PUBLIC_URL + item.url}
-                                                alt={item.alt}
-                                                className="modal-video"
-                                                controls
-                                                onContextMenu={(e) => e.preventDefault()}
-                                                controlsList="nodownload"
-                                            />;
+                                            if (item.isYoutube) {
+                                                const videoId = item.url.split('v=')[1];
+                                                return (
+                                                    <div className="modal-video-container" key={index}>
+                                                        <iframe
+                                                            width="100%"
+                                                            height="315"
+                                                            src={`https://www.youtube.com/embed/${videoId}`}
+                                                            title={item.alt}
+                                                            frameBorder="0"
+                                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                            allowFullScreen
+                                                        ></iframe>
+                                                    </div>
+                                                );
+                                            }
+                                            return null;
                                         default:
                                             return null;
                                     }
