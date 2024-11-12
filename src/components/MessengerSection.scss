@@ -88,13 +88,12 @@
     .features {
         display: flex;
         justify-content: space-between;
-        gap: 30px;
         overflow: visible;
 
         .feature-wrapper {
             display: flex;
             height: 240px;
-            padding: var(--Spacing-100, 10px);
+            padding: 8px 0;
             flex-direction: column;
             align-items: center;
             flex: 1 0 0;
@@ -182,14 +181,5 @@
 }
 
 @media (max-width: 480px) {
-    .web3-features {
-        .section-title {
-            font-size: 12px;
-            line-height: 32px;
-        }
 
-        .section-description {
-            font-size: 14px;
-        }
-    }
 }

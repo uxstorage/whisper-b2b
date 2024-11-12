@@ -19,8 +19,8 @@ function UsecaseSection({ modalOpen, selectedUsecase, openModal, closeModal }) {
             <div className="container">
                 <button className="section-tag">Usecase</button>
                 <h2 className="section-title">
-                    서비스에 바로 적용할 수 있는<br />
-                    <span>Whipser 도입 사례를 확인해보세요</span>
+                    서비스에 적용 가능한<br />
+                    <span>도입 사례를 확인해보세요</span>
                 </h2>
                 <div className="usecase-items">
                     {usecases.map((usecase) => (

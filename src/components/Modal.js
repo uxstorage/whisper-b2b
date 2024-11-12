@@ -2,7 +2,6 @@ import React, { useEffect, useContext, useState } from 'react';
 import { ThemeContext } from '../contexts/ThemeContext';
 import './Modal.scss';
 import { ReactComponent as CloseIcon } from '../assets/close-icon.svg';
-import { ReactComponent as ShareIcon } from '../assets/share-icon.svg';
 import { ReactComponent as LinkIcon } from '../assets/link-icon.svg';
 import Toast from './Toast';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -49,7 +48,7 @@ function Modal({ isOpen, onClose, children, usecaseId, selectedUsecase }) {
         } else if (!isOpen && !isClosing) {
             window.history.pushState(null, '', `${basePath}/home`);
         }
-    }, [isOpen, usecaseId, isClosing]);
+    }, [isOpen, usecaseId, isClosing, basePath]);
 
     useEffect(() => {
         console.log('Selected Usecase:', selectedUsecase);
@@ -63,32 +62,10 @@ function Modal({ isOpen, onClose, children, usecaseId, selectedUsecase }) {
         }
     };
 
-    const handleShare = (e) => {
-        e.preventDefault(); // 기본 이벤트 동작 방지
-        const baseUrl = window.location.href.split('#')[0];
-        const currentUrl = usecaseId
-            ? `${baseUrl}#modal-usecase-${usecaseId}`
-            : window.location.href;
-
-        if (navigator.share && isMobile) {
-            navigator.share({
-                title: 'Whisper',
-                text: '안전한 Web3 솔루션, 위스퍼를 확인해보세요!',
-                url: currentUrl,
-            }).then(() => {
-                console.log('공유 성공');
-            }).catch((error) => {
-                console.log('공유 실패:', error);
-            });
-        } else {
-            handleCopyLink();
-        }
-    };
-
     const handleCopyLink = () => {
-        const baseUrl = window.location.origin + '/whisper-b2b/home';
+        const baseUrl = window.location.origin + (process.env.NODE_ENV === 'production' ? '/whisper-b2b' : '');
         const currentUrl = usecaseId
-            ? `${baseUrl}/modal-usecase-${usecaseId}`
+            ? `${baseUrl}/home/modal-usecase-${usecaseId}`
             : window.location.href;
 
         if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -134,9 +111,6 @@ function Modal({ isOpen, onClose, children, usecaseId, selectedUsecase }) {
                     <button className="modal-theme-toggle" onClick={toggleDarkMode}>
                         {isDarkMode ? '🌙' : '☀️'}
                     </button>
-                    <button onClick={handleShare} className="modal-share">
-                        {isMobile ? <ShareIcon /> : <LinkIcon />}
-                    </button>
                     <button className="modal-close" onClick={handleClose}>
                         <CloseIcon />
                     </button>
@@ -169,14 +143,19 @@ function Modal({ isOpen, onClose, children, usecaseId, selectedUsecase }) {
                                                     }}
                                                 >
                                                     <img 
-                                                        src={process.env.PUBLIC_URL + item.url}
+                                                        src={item.url}
                                                         alt={item.alt} 
                                                         className="modal-image" 
                                                         onContextMenu={(e) => e.preventDefault()}
-                                                        style={{ pointerEvents: 'none' }}
+                                                        style={{ 
+                                                            pointerEvents: 'none',
+                                                            width: '100%',
+                                                            height: 'auto',
+                                                            objectFit: 'contain'
+                                                        }}
                                                         onError={(e) => {
-                                                            console.error('Image load error:', e);
-                                                            console.error('Failed to load image:', process.env.PUBLIC_URL + item.url);
+                                                            console.error('이미지 로드 실패:', e);
+                                                            console.error('실패한 이미지 경로:', item.url);
                                                             e.target.style.display = 'none';
                                                             e.target.insertAdjacentHTML('afterend', `<p>이미지를 불러올 수 없습니다: ${item.alt}</p>`);
                                                         }} 

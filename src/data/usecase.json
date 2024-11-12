@@ -9,7 +9,7 @@
             },
             {
                 "type": "image",
-                "url": "/images/memble-app.jpg",
+                "url": "https://cdn.jsdelivr.net/gh/uxstorage/whisper-b2b/public/images/memble-app.jpg",
                 "alt": "Memble 앱 스크린샷"
             }
         ]
@@ -24,12 +24,12 @@
             },
             {
                 "type": "image",
-                "url": "/images/jfwf1.jpg",
+                "url": "https://cdn.jsdelivr.net/gh/uxstorage/whisper-b2b/public/images/jfwf1.jpg",
                 "alt": "jfwf 앱 스크린샷"
             },
             {
                 "type": "image",
-                "url": "/images/jfwf2.jpg",
+                "url": "https://cdn.jsdelivr.net/gh/uxstorage/whisper-b2b/public/images/jfwf2.jpg",
                 "alt": "jfwf 앱 스크린샷"
             }
         ]
@@ -44,7 +44,7 @@
             },
             {
                 "type": "image",
-                "url": "/images/umf1.jpg",
+                "url": "https://cdn.jsdelivr.net/gh/uxstorage/whisper-b2b/public/images/umf1.jpg",
                 "alt": "umf 앱 스크린샷"
             },
             {
@@ -59,7 +59,7 @@
             },
             {
                 "type": "image",
-                "url": "/images/umf2.jpg",
+                "url": "https://cdn.jsdelivr.net/gh/uxstorage/whisper-b2b/public/images/umf2.jpg",
                 "alt": "umf 앱 스크린샷"
             }
         ]
