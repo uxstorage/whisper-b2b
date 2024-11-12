@@ -211,8 +211,10 @@
                     border-radius: 10px;
                 }
 
-                &:last-child {
-                    margin-bottom: 20px;
+                @media (max-width: 768px) {
+                    &:last-child {
+                        margin-bottom: 20px;
+                    }
                 }
             }
         }
