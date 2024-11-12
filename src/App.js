@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import './App.scss';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -24,7 +24,8 @@ function App() {
         <div className="App">
           <Header isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
           <Routes>
-            <Route path="/" element={<Home />}>
+            <Route path="/" element={<Navigate to="/home" replace />} />
+            <Route path="/home" element={<Home />}>
               <Route path="modal-usecase-:id" element={<Home />} />
             </Route>
             <Route path="/contact" element={<ContactForm />} />

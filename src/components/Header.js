@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Header.scss';
 import { ReactComponent as WhisperLogo } from '../assets/whisper-logo.svg';
 import { ReactComponent as WhisperLogoDark } from '../assets/whisper-logo-dark.svg';
@@ -7,6 +7,7 @@ import { ReactComponent as WhisperLogoDark } from '../assets/whisper-logo-dark.s
 function Header({ isMenuOpen, toggleMenu }) {
     const [isDarkMode, setIsDarkMode] = useState(false);
     const location = useLocation();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const darkModePreference = localStorage.getItem('darkMode');
@@ -38,7 +39,14 @@ function Header({ isMenuOpen, toggleMenu }) {
     return (
         <header>
             <div className="container">
-                <Link to="/" className="logo" onClick={(e) => { e.preventDefault(); window.location.href = '/'; }} >
+                <Link 
+                    to="/home" 
+                    className="logo" 
+                    onClick={(e) => {
+                        e.preventDefault();
+                        navigate('/home');
+                    }}
+                >
                     {isDarkMode ? <WhisperLogoDark className="logo-svg" /> : <WhisperLogo className="logo-svg" />}
                 </Link>
                 <nav className={isMenuOpen ? 'active' : ''}>
