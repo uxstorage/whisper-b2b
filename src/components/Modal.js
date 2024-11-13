@@ -121,7 +121,7 @@ function Modal({ isOpen, onClose, children, usecaseId, selectedUsecase }) {
                             <div className="modal-content">
                                 <h2 className="modal-title">{selectedUsecase.title}</h2>
                                 {selectedUsecase.content.map((item, index) => {
-                                    switch(item.type) {
+                                    switch (item.type) {
                                         case 'text':
                                             return <p key={index} className="modal-description">{item.value}</p>;
                                         case 'list':
@@ -135,19 +135,19 @@ function Modal({ isOpen, onClose, children, usecaseId, selectedUsecase }) {
                                         case 'image':
                                             const isLastItem = index === selectedUsecase.content.length - 1;
                                             return (
-                                                <div 
-                                                    key={index} 
-                                                    style={{ 
+                                                <div
+                                                    key={index}
+                                                    style={{
                                                         marginBottom: isLastItem ? '40px' : '20px',
                                                         width: '100%'
                                                     }}
                                                 >
-                                                    <img 
+                                                    <img
                                                         src={item.url}
-                                                        alt={item.alt} 
-                                                        className="modal-image" 
+                                                        alt={item.alt}
+                                                        className="modal-image"
                                                         onContextMenu={(e) => e.preventDefault()}
-                                                        style={{ 
+                                                        style={{
                                                             pointerEvents: 'none',
                                                             width: '100%',
                                                             height: 'auto',
@@ -158,7 +158,7 @@ function Modal({ isOpen, onClose, children, usecaseId, selectedUsecase }) {
                                                             console.error('실패한 이미지 경로:', item.url);
                                                             e.target.style.display = 'none';
                                                             e.target.insertAdjacentHTML('afterend', `<p>이미지를 불러올 수 없습니다: ${item.alt}</p>`);
-                                                        }} 
+                                                        }}
                                                     />
                                                 </div>
                                             );

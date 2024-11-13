@@ -39,9 +39,9 @@ function Header({ isMenuOpen, toggleMenu }) {
     return (
         <header>
             <div className="container">
-                <Link 
-                    to="/home" 
-                    className="logo" 
+                <Link
+                    to="/home"
+                    className="logo"
                     onClick={(e) => {
                         e.preventDefault();
                         navigate('/home');
@@ -51,8 +51,6 @@ function Header({ isMenuOpen, toggleMenu }) {
                 </Link>
                 <nav className={isMenuOpen ? 'active' : ''}>
                     <ul>
-                        {/* <li><a href="#solutions" onClick={handleNavClick}>솔루션 소개</a></li>
-                        <li><a href="#plans" onClick={handleNavClick}>플랜 소개</a></li> */}
                         <li>
                             <Link to="/contact" className="btn" onClick={handleNavClick}>
                                 <span>문의하기</span>

@@ -99,6 +99,7 @@
 
         h3 {
             color: var(--label-strong);
+
             body.dark-mode & {
                 color: var(--dark-label-strong);
             }
@@ -111,7 +112,7 @@
         object-fit: contain;
         margin-bottom: 16px;
     }
-    
+
     .modal-content img {
         width: 100%;
         object-fit: cover;
@@ -147,6 +148,7 @@
         color: #999;
         margin-bottom: 24px;
     }
+
     .read-more {
         display: inline-flex;
         align-items: center;

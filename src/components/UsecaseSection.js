@@ -34,11 +34,11 @@ function UsecaseSection({ modalOpen, selectedUsecase, openModal, closeModal }) {
                 </div>
             </div>
             {modalOpen && selectedUsecase && (
-                <Modal 
+                <Modal
                     key={selectedUsecase.id}
-                    isOpen={modalOpen} 
-                    onClose={closeModal} 
-                    usecaseId={selectedUsecase.id} 
+                    isOpen={modalOpen}
+                    onClose={closeModal}
+                    usecaseId={selectedUsecase.id}
                     selectedUsecase={selectedUsecase}
                 >
                     {/* Modal content */}

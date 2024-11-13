@@ -82,10 +82,10 @@ function Home() {
         <main>
             <HeroSection />
             <ClientsSection />
-            <UsecaseSection 
-                modalOpen={modalOpen} 
-                selectedUsecase={selectedUsecase} 
-                openModal={openModal} 
+            <UsecaseSection
+                modalOpen={modalOpen}
+                selectedUsecase={selectedUsecase}
+                openModal={openModal}
                 closeModal={closeModal}
             />
             <WalletSection />
@@ -101,7 +101,7 @@ function Home() {
                         <div className="modal-content">
                             <h2 className="modal-title">{selectedUsecase.title}</h2>
                             {selectedUsecase.content.map((item, index) => {
-                                switch(item.type) {
+                                switch (item.type) {
                                     case 'text':
                                         return <p key={index} className="modal-description">{item.value}</p>;
                                     case 'list':

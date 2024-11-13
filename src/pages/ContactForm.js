@@ -47,15 +47,16 @@ function ContactForm() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log(`handleChange called: ${name} = ${value}`);
-    setFormData(prevData => {
-      const newData = {
-        ...prevData,
-        [name]: value
-      };
-      console.log('New formData:', newData);
-      return newData;
-    });
+
+    if (name === 'message' && value.length > 2000) {
+      return;
+    }
+
+    setFormData(prevData => ({
+      ...prevData,
+      [name]: value
+    }));
+
     setErrorFields(prev => ({
       ...prev,
       [name]: false
@@ -124,7 +125,6 @@ function ContactForm() {
     setErrorFields(newErrorFields);
     setShowErrorBorder(newErrorFields);
 
-    // 3초 후에 에러 테리를 제거합니다
     setTimeout(() => {
       setShowErrorBorder({});
     }, 3000);
@@ -176,7 +176,7 @@ function ContactForm() {
   };
 
   const charCount = formData.message.length;
-  const isExceeded = charCount > 500;
+  const isExceeded = charCount > 2000;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -204,8 +204,8 @@ function ContactForm() {
         <div className="contact-text">
           <h1>어떤 질문도 <br />위스퍼가 답변해드릴게요</h1>
           <p className="subtitle">
-          아래와 같은 궁금한 점을 모두 질문하세요.<br />
-          영업팀이 메일 또는 전화로 제품에 대해 자세히 알드립니다.
+            아래와 같은 궁금한 점을 모두 질문하세요.<br />
+            영업팀이 메일 또는 전화로 제품에 대해 자세히 알드립니다.
           </p>
         </div>
         <form onSubmit={handleSubmit} className="contact-form" noValidate>
@@ -284,7 +284,7 @@ function ContactForm() {
             className={showErrorBorder.message ? 'error' : ''}
           ></textarea>
           <div className={`char-count ${isExceeded ? 'exceed' : ''}`}>
-            {charCount}/500
+            {charCount}/2000
           </div>
           <button type="submit" disabled={isSubmitting}>
             {isSubmitting ? '제출 중...' : '문의 제출하기'}

@@ -44,7 +44,7 @@
         font-size: 40px;
         font-weight: 700;
         color: var(--label-strong);
-        margin-bottom: 32px;
+        margin-bottom: 24px;
         line-height: 1.2;
 
         body.dark-mode & {
@@ -208,8 +208,6 @@
             line-height: 32px;
         }
 
-        .section-description {
-
-        }
+        .section-description {}
     }
 }
