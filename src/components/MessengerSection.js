@@ -30,7 +30,7 @@ function MessengerSection() {
                             <img src={groupMessage} alt="일대다 그룹 메시징" />
                             <div className="text-content">
                                 <h3>일대다 그룹 메시징</h3>
-                                <p>그룹 채팅을 통해 여러 사용자와 한 번에 민감한 정보도 안전하게 주고받을 수 있습니다.</p>
+                                <p>그룹 채팅을 통해 여러 사용자와 대화를 안전하게 주고받을 수 있습니다.</p>
                             </div>
                         </div>
                     </div>
@@ -39,7 +39,7 @@ function MessengerSection() {
                             <img src={sendMoney} alt="채팅 내 간편 송금" />
                             <div className="text-content">
                                 <h3>채팅 내 간편 송금</h3>
-                                <p>채팅 중에 바로 암호화폐를 송금할 수 있어요. 간단한 클릭으로 안전하게 자산을 전송할 수 있습니다.</p>
+                                <p>채팅 중에 바로 자산을 송금할 수 있어요. 간단하고 안전합니다.</p>
                             </div>
                         </div>
                     </div>

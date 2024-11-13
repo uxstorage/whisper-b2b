@@ -14,6 +14,14 @@
     flex-direction: column;
     justify-content: space-between;
 
+    @media (max-width: 1024px) {
+        width: 94%;
+    }
+
+    @media (max-width: 768px) {
+        width: 94%;
+    }
+
     body.dark-mode & {
         border-color: var(--dark-line-normal-normal);
     }
@@ -117,7 +125,6 @@
     }
 }
 
-// Media Queries
 @media (max-width: 768px) {
     .block-explorer {
         width: 90%;
